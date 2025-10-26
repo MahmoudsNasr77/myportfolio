@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahmoud Sabry Nasr - Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome CDN -->
+<!-- Favicon for Portfolio -->
+<link rel="icon" href="mahmoud.png" type="image/png">
+
+
+  <style>
+    html {
+  scroll-behavior: smooth;
+}
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #161b22;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .nav-link {
+      color: #8b949e !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar .nav-link:hover {
+      color: #58a6ff !important;
+    }
+
+    header {
+      background: linear-gradient(135deg, #161b22, #0d1117);
+      padding: 80px 0 40px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #8b949e;
+    }
+
+    header a {
+      color: #c9d1d9;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    header a:hover {
+      color: #58a6ff;
+    }
+
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #c9d1d9;
+      margin: 50px 0 20px;
+      text-align: center;
+    }
+
+    .project-card, .tech-card {
+      background-color: #393e46;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover, .tech-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .skills-icon:hover {
+      color: #58a6ff;
+    }
+
+    .profile-img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+.project-card {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      background-color: #161b22;
+      color: #c9d1d9;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark shadow-sm animate__animated animate__fadeInDown">
+    <div class="container">
+      <a class="navbar-brand skills-icon" href="#">Mahmoud Sabry Nasr</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tech-stack">Tech Stack</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="animate__animated animate__fadeInUp">
+    <div class="text-center mb-4">
+      <img src="mahmoud.png" alt="Mahmoud Sabry Nasr" class="profile-img" />
+    </div>
+    <h1>Mahmoud Sabry Nasr</h1>
+    <p>Backend Developer | Odoo Developer</p>
+    <p>
+      <a href="mailto:mahmoudsabrynasr@gmail.com"><i class="fas fa-envelope"></i> mahmoudsabrynasr@gmail.com</a> | <a href="mailto:mahmoud_nasr77@icloud.com"><i class="fas fa-envelope"></i> mahmoud_nasr77@icloud.com</a>
+    </p>
+    <p>
+  <a href="tel:+201552404457" class="me-3">
+    <i class="fas fa-phone"></i> +20 1552404457
+  </a>
+  |
+  <a href="https://wa.me/201552404457" target="_blank" class="ms-3">
+    <i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp
+  </a>
+</p>
+
+    <p>
+      <a href="https://www.linkedin.com/in/mahmoudnasr77"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/MahmoudsNasr77"><i class="fab fa-github"></i></a>
+    </p>
+    <a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" class="btn btn-warning mt-3" download>Download My CV</a>
+  </header>
+
+  <!-- Sections (About, Projects, Skills, Tech Stack) -->
+  <!-- Use data-aos attributes for scroll animations -->
+<section id="about" class="container" data-aos="fade-up" data-aos-duration="1000">
+  <h2 class="section-title">Experience</h2>
+
+  <!-- IHR Company -->
+  <div class="mb-4" data-aos="fade-right" data-aos-delay="100">
+    <h5><strong>Odoo Developer</strong> – IHR Company (Hybrid, Egypt)</h5>
+    <p><em>Sep 2025 – Present</em></p>
+    <ul>
+      <li>Developed and customized Odoo modules including HR, Accounting, POS, and Website.</li>
+      <li>Built REST APIs and portal pages for employees and clients with secure authentication.</li>
+      <li>Integrated WhatsApp for business communication and automated workflow triggers.</li>
+    </ul>
+  </div>
+
+  <!-- Modern Technology Company -->
+  <div class="mb-4" data-aos="fade-left" data-aos-delay="200">
+    <h5><strong>Odoo Developer</strong> – Modern Technology Company (Remote, Iraq)</h5>
+    <p><em>Jul 2025 – Sep 2025</em></p>
+    <ul>
+      <li>Customized business workflows in Sales and Purchase modules to match client operations.</li>
+      <li>Developed advanced reporting and dashboard features tailored to business KPIs.</li>
+      <li>Collaborated remotely with cross-border teams to deliver scalable ERP solutions.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+  <h2 class="section-title text-center text-light mb-5">Main Projects</h2>
+  <div class="row g-4">
+    <!-- Odoo School Management -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="100">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">Odoo School Management (Open Source)</h5>
+          <ul>
+            <li>Comprehensive school management system built with Odoo framework.</li>
+            <li>Modules for student registration, attendance, grading, and scheduling.</li>
+            <li>User-friendly interfaces for teachers, students, and administrators.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/odoo-school-management" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ceramic Palace Website -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="200">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">Ceramic Palace Website (Freelancer)</h5>
+          <ul>
+            <li>Full-featured website using Django and PostgreSQL.</li>
+            <li>Backend logic, models, and database structure.</li>
+            <li>Delivered high-quality work within deadline.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/ceramic-palace" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FCI ZU Inventory Management -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="300">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">FCI ZU Inventory Management (Freelancer)</h5>
+          <ul>
+            <li>RESTful APIs using Django REST Framework.</li>
+            <li>Backend support for frontend operations.</li>
+            <li>Delivered on time with full functionality.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/fci-zu-inventory-management" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Smart Farming Project -->
+<div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="850">
+  <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+    <div class="card-body text-light d-flex flex-column justify-content-between">
+      <h5 class="card-title">Smart Farming (Open Source)</h5>
+      <ul>
+        <li>Developed an intelligent farming system using Django and PostgreSQL.</li>
+        <li>Implemented modules for crop monitoring, sensor data integration, and farm analytics.</li>
+        <li>Designed RESTful APIs and user-friendly dashboards for farmers and admins.</li>
+      </ul>
+      <div class="d-flex justify-content-center mt-auto">
+        <a href="https://github.com/MahmoudsNasr77/Smart-Farming--" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Job Board Website -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="400">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">Job Board Website (Training)</h5>
+          <ul>
+            <li>Job board platform with Django and PostgreSQL.</li>
+            <li>Complete backend logic and database schema.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/Django-Job-Website" class="btn btn-light project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Online Store API -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="500">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">Online Store API (Training)</h5>
+          <ul>
+            <li>Online store using Django, DRF, and PostgreSQL.</li>
+            <li>Authentication, product management, and order handling.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/Store-Website" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simple Blog -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="600">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">Simple Blog Using Django</h5>
+          <ul>
+            <li>Blog application with CRUD features.</li>
+            <li>Authentication and user-friendly interface.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/Simple-Blog-using-Django" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clinical Management System -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="700">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">Clinical Management System</h5>
+          <ul>
+            <li>Patient management, appointments, and medical history tracking.</li>
+            <li>Django and PostgreSQL backend.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/clinical-" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taskly -->
+    <div class="col-md-6 d-flex" data-aos="zoom-in-up" data-aos-delay="800">
+      <div class="card shadow-lg border-0 rounded-lg project-card w-100 h-100">
+        <div class="card-body text-light d-flex flex-column justify-content-between">
+          <h5 class="card-title">Taskly</h5>
+          <ul>
+            <li>Task management app using Django.</li>
+            <li>Task creation, tracking, and priority settings.</li>
+            <li>User authentication included.</li>
+          </ul>
+          <div class="d-flex justify-content-center mt-auto">
+            <a href="https://github.com/MahmoudsNasr77/taskly" class="btn btn-dark project-btn skills-icon" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="education" class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+  <h2 class="section-title">Education</h2>
+  <div class="mb-4">
+    <h5><strong>Bachelor of Computer Science</strong> – Zagazig University</h5>
+    <p><em>2019 – 2023</em></p>
+    <ul>
+      <li>Graduated with <strong>High Excellent</strong> grade.</li>
+      <li>GPA: 3.74 / 4.00</li>
+      <li>Focused on software engineering, algorithms, backend development, and data analysis.</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<section id="skills" class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+  <h2 class="section-title">Skills</h2>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">Odoo Framework</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-info" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">Django Framework</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-success" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">Python</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-success" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">Java</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-warning" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">SQL & PostgreSQL</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-info" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">HTML, CSS, JavaScript & Bootstrap</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-success" style="width: 98%;" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">98%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">RESTful API</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-info" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">Machine Learning Algorithms</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-warning" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">Data Structures & Algorithms</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-info" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">OOP (Object-Oriented Programming)</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-success" style="width: 98%;" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">98%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">Data Analysis</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-info" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <h5 class="text-light">XML</h5>
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar bg-success" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="tech-stack" class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+  <h2 class="section-title text-center text-light mb-5">Tech Stack</h2>
+  <div class="row text-center">
+    <!-- Odoo -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="100">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">Odoo</h5>
+          <i class="fas fa-cogs fa-3x skills-icon" style="color:#814C94;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Django -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="150">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">Django</h5>
+          <i class="fab fa-python fa-3x skills-icon" style="color:#2E8B57;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Django REST Framework -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="200">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">DRF</h5>
+          <i class="fas fa-network-wired fa-3x skills-icon" style="color:#00CED1;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- PostgreSQL -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="250">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">PostgreSQL</h5>
+          <i class="fas fa-database fa-3x skills-icon" style="color:#336791;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Python -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="300">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">Python</h5>
+          <i class="fab fa-python fa-3x skills-icon" style="color:#FFD43B;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- HTML -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="350">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">HTML</h5>
+          <i class="fab fa-html5 fa-3x skills-icon" style="color:#E34F26;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="400">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">CSS</h5>
+          <i class="fab fa-css3-alt fa-3x skills-icon" style="color:#1572B6;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="450">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">JavaScript</h5>
+          <i class="fab fa-js fa-3x skills-icon" style="color:#F7DF1E;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- XML -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="500">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">XML</h5>
+          <i class="fas fa-code fa-3x skills-icon" style="color:#FF8C00;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scikit-learn -->
+    <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="flip-left" data-aos-delay="550">
+      <div class="card shadow-lg border-0 rounded-lg tech-card h-100" style="background-color: #393e46;">
+        <div class="card-body text-light d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">Scikit-learn</h5>
+          <i class="fas fa-brain fa-3x skills-icon" style="color:#4CAF50;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="animate__animated animate__fadeInUp" style="background-color: #161b22; color: #c9d1d9; padding: 20px 0; text-align: center;">
+  <p class="mb-0">&copy; 2026Mahmoud Sabry Nasr. All rights reserved.</p>
+  
+</footer>
+<a href="#top" id="backToTop" class="btn btn-outline-light back-to-top" style="position: fixed; bottom: 20px; right: 20px; z-index: 999; display: none;">
+  <i class="fas fa-arrow-up"></i> Top
+</a>
+
+
+
+
+  <!-- JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Optional GSAP for advanced animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    gsap.from(".project-card", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      stagger: 0.2
+    });
+      window.addEventListener("scroll", function () {
+    const button = document.getElementById("backToTop");
+    if (window.scrollY > 300) {
+      button.style.display = "block";
+    } else {
+      button.style.display = "none";
+    }
+  });
+  </script>
+</body>
+</html>
