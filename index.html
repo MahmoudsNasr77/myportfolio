@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahmoud Sabry Nasr - Portfolio</title>
+  <meta property="og:image" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
+  <meta property="og:url" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
+  <meta name="twitter:image" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #6366f1;
+      --secondary-color: #a855f7;
+      --accent-color: #10b981;
+      --dark-bg: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.5);
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      opacity: 0.1;
+      z-index: -1;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.15; }
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .navbar-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-link {
+      color: var(--text-secondary) !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Header */
+    header {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .profile-container {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .header-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff, var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-subtitle {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info:hover {
+      color: var(--primary-color);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 50%;
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .btn-primary-custom {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 12px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-primary-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+      color: white;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 2px;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+    }
+
+    .experience-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .experience-card:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+    }
+
+    .project-card {
+      position: relative;
+    }
+
+    .private-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .btn-outline-custom {
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .btn-outline-custom:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Skills */
+    .skill-item {
+      margin-bottom: 2rem;
+    }
+
+    .progress-custom {
+      height: 10px;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar-custom {
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 10px;
+      transition: width 1s ease;
+    }
+
+    /* Tech Stack */
+    .tech-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+    }
+
+    .tech-card i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-card h5 {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    /* Visitor Counter */
+    .visitor-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(99, 102, 241, 0.1);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .visitor-box i {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+    }
+
+    .visitor-box .label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .visitor-box .count {
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 1.25rem;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-title {
+        font-size: 2.5rem;
+      }
+
+      .header-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .contact-info {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <div class="bg-gradient"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Mahmoud Nasr</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tech-stack">Tech Stack</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="container text-center">
+      <div class="profile-container">
+        <img src="mahmoud.png" alt="Mahmoud Sabry Nasr" class="profile-img" />
+      </div>
+      <h1 class="header-title">Mahmoud Sabry Nasr</h1>
+      <p class="header-subtitle">Backend Developer | <span class="gradient-text">Odoo Developer</span></p>
+      
+      <div class="mb-4">
+        <a href="mailto:mahmoudsabrynasr@gmail.com" class="contact-info">
+          <i class="fas fa-envelope"></i> mahmoudsabrynasr@gmail.com
+        </a>
+        <a href="tel:+201552404457" class="contact-info">
+          <i class="fas fa-phone"></i> +20 1552404457
+        </a>
+      </div>
+
+      <div class="social-links mb-4">
+        <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/MahmoudsNasr77" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://wa.me/201552404457" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+
+      <a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" class="btn btn-primary-custom" target="_blank">
+        <i class="fas fa-download me-2"></i>Download CV
+      </a>
+    </div>
+  </header>
+
+  <!-- Experience Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      
+      <div class="experience-card">
+        <h5><i class="fas fa-briefcase me-2" style="color: #6366f1;"></i>Odoo Developer – iHR (International Human Resources) Company</h5>
+        <p class="text-muted"><i class="fas fa-calendar-alt me-2"></i>Sep 2025 – Present | <i class="fas fa-map-marker-alt me-2"></i>Hybrid, Egypt</p>
+        <ul>
+          <li>Developed and customized enterprise modules for business process automation in human resources</li>
+          <li>Built secure REST APIs and user portals with role-based authentication</li>
+          <li>Integrated third-party services and automated workflow systems</li>
+        </ul>
+      </div>
+
+      <div class="experience-card">
+        <h5><i class="fas fa-briefcase me-2" style="color: #a855f7;"></i>Odoo Developer – Modern Technology Company</h5>
+        <p class="text-muted"><i class="fas fa-calendar-alt me-2"></i>Jul 2025 – Sep 2025 | <i class="fas fa-map-marker-alt me-2"></i>Remote, Iraq</p>
+        <ul>
+          <li>Customized business workflows in Sales and Purchase modules to match client operations</li>
+          <li>Developed advanced reporting and dashboard features tailored to business KPIs</li>
+          <li>Collaborated remotely with cross-border teams to deliver scalable ERP solutions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card project-card d-flex flex-column">
+            <h5><i class="fas fa-school me-2" style="color: #6366f1;"></i>Odoo School Management</h5>
+            <ul>
+              <li>Comprehensive school management system built with Odoo</li>
+              <li>Student registration, attendance, and grading modules</li>
+              <li>User-friendly interfaces for all stakeholders</li>
+            </ul>
+            <a href="https://github.com/MahmoudsNasr77/odoo-school-management" class="btn btn-outline-custom mt-auto" target="_blank">
+              <i class="fab fa-github me-2"></i>View Project
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card project-card d-flex flex-column">
+            <span class="private-badge"><i class="fas fa-lock"></i> Private</span>
+            <h5><i class="fas fa-store me-2" style="color: #a855f7;"></i>Ceramic Palace Website</h5>
+            <ul>
+              <li>Full-featured e-commerce site with Django</li>
+              <li>PostgreSQL database with optimized queries</li>
+              <li>Delivered high-quality work within deadline</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card project-card d-flex flex-column">
+            <h5><i class="fas fa-leaf me-2" style="color: #10b981;"></i>Smart Farming System</h5>
+            <ul>
+              <li>Intelligent farming system with Django</li>
+              <li>Sensor data integration and analytics</li>
+              <li>RESTful APIs for IoT devices</li>
+            </ul>
+            <a href="https://github.com/MahmoudsNasr77/Smart-Farming--" class="btn btn-outline-custom mt-auto" target="_blank">
+              <i class="fab fa-github me-2"></i>View Project
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card project-card d-flex flex-column">
+            <span class="private-badge"><i class="fas fa-lock"></i> Private</span>
+            <h5><i class="fas fa-boxes me-2" style="color: #f59e0b;"></i>FCI ZU Inventory</h5>
+            <ul>
+              <li>RESTful APIs using Django REST Framework</li>
+              <li>Backend support for frontend operations</li>
+              <li>Full functionality delivered on time</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card project-card d-flex flex-column">
+            <h5><i class="fas fa-briefcase me-2" style="color: #3b82f6;"></i>Job Board Platform</h5>
+            <ul>
+              <li>Job board platform with Django</li>
+              <li>Complete backend logic and database</li>
+              <li>User authentication and job posting</li>
+            </ul>
+            <a href="https://github.com/MahmoudsNasr77/Django-Job-Website" class="btn btn-outline-custom mt-auto" target="_blank">
+              <i class="fab fa-github me-2"></i>View Project
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card project-card d-flex flex-column">
+            <h5><i class="fas fa-shopping-cart me-2" style="color: #ef4444;"></i>Online Store API</h5>
+            <ul>
+              <li>E-commerce API with Django REST Framework</li>
+              <li>Product management and order handling</li>
+              <li>Secure authentication system</li>
+            </ul>
+            <a href="https://github.com/MahmoudsNasr77/Store-Website" class="btn btn-outline-custom mt-auto" target="_blank">
+              <i class="fab fa-github me-2"></i>View Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="glass-card">
+        <div class="d-flex align-items-center mb-3">
+          <i class="fas fa-graduation-cap fa-3x me-3" style="color: #6366f1;"></i>
+          <div>
+            <h5>Bachelor of Computer Science</h5>
+            <p class="text-light mb-0">Zagazig University | 2019 – 2023</p>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Graduated with High Excellent grade</strong></li>
+          <li>GPA: 3.74 / 4.00</li>
+          <li>Focused on software engineering, algorithms, backend development, and data analysis</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-cogs me-2" style="color: #814C94;"></i>Odoo Framework</h5>
+              <span class="gradient-text fw-bold">85%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fab fa-python me-2" style="color: #2E8B57;"></i>Django Framework</h5>
+              <span class="gradient-text fw-bold">90%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fab fa-python me-2" style="color: #FFD43B;"></i>Python</h5>
+              <span class="gradient-text fw-bold">95%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fab fa-java me-2" style="color: #f89820;"></i>Java</h5>
+              <span class="gradient-text fw-bold">70%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-database me-2" style="color: #336791;"></i>SQL & PostgreSQL</h5>
+              <span class="gradient-text fw-bold">85%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fab fa-html5 me-2" style="color: #E34F26;"></i>HTML, CSS, JavaScript</h5>
+              <span class="gradient-text fw-bold">98%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 98%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-network-wired me-2" style="color: #00CED1;"></i>RESTful API</h5>
+              <span class="gradient-text fw-bold">85%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-project-diagram me-2" style="color: #6366f1;"></i>OOP</h5>
+              <span class="gradient-text fw-bold">98%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 98%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-sitemap me-2" style="color: #a855f7;"></i>Data Structures & Algorithms</h5>
+              <span class="gradient-text fw-bold">85%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-brain me-2" style="color: #4CAF50;"></i>Machine Learning</h5>
+              <span class="gradient-text fw-bold">70%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-chart-line me-2" style="color: #3b82f6;"></i>Data Analysis</h5>
+              <span class="gradient-text fw-bold">75%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-item">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5><i class="fas fa-code me-2" style="color: #FF8C00;"></i>XML</h5>
+              <span class="gradient-text fw-bold">90%</span>
+            </div>
+            <div class="progress-custom">
+              <div class="progress-bar-custom" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="tech-stack" class="section">
+    <div class="container">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="row g-4">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fas fa-cogs" style="color: #814C94;"></i>
+            <h5>Odoo</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fab fa-python" style="color: #2E8B57;"></i>
+            <h5>Django</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fas fa-network-wired" style="color: #00CED1;"></i>
+            <h5>DRF</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fas fa-database" style="color: #336791;"></i>
+            <h5>PostgreSQL</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fab fa-python" style="color: #FFD43B;"></i>
+            <h5>Python</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fab fa-html5" style="color: #E34F26;"></i>
+            <h5>HTML</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
+            <h5>CSS</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fab fa-js" style="color: #F7DF1E;"></i>
+            <h5>JavaScript</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fas fa-code" style="color: #FF8C00;"></i>
+            <h5>XML</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fas fa-brain" style="color: #4CAF50;"></i>
+            <h5>Scikit-learn</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fab fa-git-alt" style="color: #F05032;"></i>
+            <h5>Git</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="tech-card">
+            <i class="fab fa-bootstrap" style="color: #7952B3;"></i>
+            <h5>Bootstrap</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="visitor-box mb-3">
+        <i class="fas fa-eye"></i>
+        <span class="label">Total Visitors:</span>
+        <span id="visitor-count" class="count">0</span>
+      </div>
+
+      <p class="mb-3">&copy; 2026 Mahmoud Sabry Nasr. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+const BIN_ID = "692ef2ecae596e708f7ea663";  
+const ACCESS_KEY = "$2a$10$fyovnGfoe0uPo.ciKue4vOUF3QeyLejPfADbFO/uvQUvofs9GU/Eq"; 
+
+async function updateVisitorCount() {
+  try {
+    // 1) Read current count
+    const getRes = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: {
+        "X-Access-Key": ACCESS_KEY
+      }
+    });
+
+    const getData = await getRes.json();
+    let count = getData.record.count;
+
+    // 2) Increment
+    count++;
+
+    // 3) Update bin
+    await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Access-Key": ACCESS_KEY
+      },
+      body: JSON.stringify({ count })
+    });
+
+    // 4) Show counter
+    animateCounter(count);
+
+  } catch (error) {
+    console.error("Visitor counter error:", error);
+  }
+}
+
+function animateCounter(targetCount) {
+  const display = document.getElementById("visitor-count");
+  let current = 0;
+  const step = Math.ceil(targetCount / 40);
+
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= targetCount) {
+      current = targetCount;
+      clearInterval(timer);
+    }
+    display.textContent = current;
+  }, 40);
+}
+
+// Run when page loads
+updateVisitorCount();
+</script>
+
+  <script>
+    // Typing Animation
+    const typedName = document.getElementById('typedName');
+    const name = 'Mahmoud Sabry Nasr';
+    let i = 0;
+
+    function typeWriter() {
+      if (i < name.length) {
+        typedName.textContent += name.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+
+    // Start typing animation when page loads
+    window.addEventListener('load', typeWriter);
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth Scrolling for Navigation Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Animate Progress Bars on Scroll
+    const progressBars = document.querySelectorAll('.progress-bar-custom');
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const progressObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute('style').match(/width:\s*(\d+%)/)[1];
+        }
+      });
+    }, observerOptions);
+
+    progressBars.forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0%';
+      progressObserver.observe(bar);
+    });
+
+
+
+    // Add hover effect to cards
+    const cards = document.querySelectorAll('.glass-card, .experience-card, .tech-card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
