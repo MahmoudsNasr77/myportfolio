@@ -992,8 +992,8 @@ function applyLang(lang){
   if (window.__themeReady) renderThemeLabel();
   try { localStorage.setItem('lang', lang); } catch(e){}
 }
-let current = 'en';
-try { current = localStorage.getItem('lang') || 'en'; } catch(e){}
+let current = 'ar';
+try { current = localStorage.getItem('lang') || 'ar'; } catch(e){}
 applyLang(current);
 function toggleLang(e){
   if (e) e.preventDefault();
@@ -1084,10 +1084,11 @@ new IntersectionObserver((entries) => {
   entries.forEach(e => contactSection.classList.toggle('in-view', e.isIntersecting));
 }, { threshold: 0.35 }).observe(contactSection);
 
-// Send-message chatter → Formspree (delivers to mahmoudsabrynasr@gmail.com)
-// SETUP: sign up at https://formspree.io with mahmoudsabrynasr@gmail.com,
-// create a form, then replace YOUR_FORM_ID below with the given id.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+// Send-message chatter → Web3Forms (delivers to mahmoudsabrynasr@gmail.com)
+// SETUP: get a free access key at https://web3forms.com (enter your email,
+// the key is emailed instantly), then replace YOUR_ACCESS_KEY_HERE below.
+const WEB3FORMS_KEY = "ff34fdd6-bde5-4152-b327-033920b231f5";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const msgForm = document.getElementById('msgForm');
 const msgStatus = document.getElementById('mf-status');
 const msgBtn = document.getElementById('mf-btn');
@@ -1098,8 +1099,8 @@ msgForm.addEventListener('submit', async (e) => {
   const email = document.getElementById('mf-email').value.trim();
   const message = document.getElementById('mf-msg').value.trim();
 
-  // Fallback: if Formspree not configured yet, open mail client via mailto.
-  if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
+  // Fallback: if access key not set yet, open mail client via mailto.
+  if (WEB3FORMS_KEY.includes('YOUR_ACCESS_KEY_HERE')) {
     const subject = encodeURIComponent(`Portfolio message from ${name}`);
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
     window.location.href = `mailto:mahmoudsabrynasr@gmail.com?subject=${subject}&body=${body}`;
@@ -1110,17 +1111,23 @@ msgForm.addEventListener('submit', async (e) => {
   msgStatus.className = 'msg-status';
   msgStatus.textContent = isAr() ? 'جارٍ الإرسال…' : 'Sending…';
   try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
+    const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message, _subject: `Portfolio message from ${name}` }),
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        name, email, message,
+        from_name: name,
+        subject: `Portfolio message from ${name}`,
+      }),
     });
-    if (res.ok) {
+    const data = await res.json();
+    if (res.ok && data.success) {
       msgForm.reset();
       msgStatus.className = 'msg-status ok';
       msgStatus.textContent = isAr() ? '✓ تم الإرسال — سأرد عبر البريد قريباً.' : '✓ Sent — I\'ll reply by email soon.';
     } else {
-      throw new Error('bad response');
+      throw new Error(data.message || 'bad response');
     }
   } catch (err) {
     msgStatus.className = 'msg-status err';
@@ -1130,5 +1137,6 @@ msgForm.addEventListener('submit', async (e) => {
   }
 });
 </script>
+
 </body>
 </html>
