@@ -1,1234 +1,1134 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mahmoud Sabry Nasr — Odoo & Backend Developer</title>
-  <meta property="og:image" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-ar="محمود صبري نصر — مطوّر أودو والواجهة الخلفية">Mahmoud Sabry Nasr — Odoo & Backend Developer</title>
+<meta property="og:image" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+:root{
+  --purple:#714B67;
+  --purple-deep:#4C3145;
+  --purple-soft:#F1EAEF;
+  --teal:#00A09D;
+  --teal-deep:#00807D;
+  --gold:#E6A54C;
+  --bg:#F7F6F3;
+  --surface:#FFFFFF;
+  --ink:#2A2521;
+  --muted:#847C74;
+  --line:#E6E1DA;
+  --line-strong:#D6CFC6;
+  --radius:8px;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',sans-serif;
+  --sans-ar:'Cairo','Tajawal',sans-serif;
+  --dot:#00000009;
+}
+/* ===== Dark theme ===== */
+html[data-theme="dark"]{
+  --purple:#8A6580;
+  --purple-deep:#B790AB;
+  --purple-soft:#2B2230;
+  --teal:#2CC4C0;
+  --teal-deep:#41D6D2;
+  --gold:#E6A54C;
+  --bg:#15131A;
+  --surface:#1E1B24;
+  --ink:#EDE8F0;
+  --muted:#9A93A3;
+  --line:#2E2A36;
+  --line-strong:#3A3543;
+  --dot:#ffffff0a;
+}
+html[data-theme="dark"] body{background-image:radial-gradient(circle,var(--dot) 1px,transparent 1px);}
+html[data-theme="dark"] .appbar{background:#241E2B;border-bottom:1px solid var(--line);}
+html[data-theme="dark"] .btn-outline{background:var(--surface);}
+html[data-theme="dark"] .kbadge.pub{background:#173B2C;color:#5CE0A0;}
+html[data-theme="dark"] .kbadge.priv{background:#3A2E17;color:#E6B45C;}
+html[data-theme="dark"] .saved-pill{color:#5CE0A0;}
+html[data-theme="dark"] .msg-field input,
+html[data-theme="dark"] .msg-field textarea{background:var(--surface);color:var(--ink);}
+html[data-theme="dark"] .log-points li{color:var(--muted);}
+html[data-theme="dark"] .kcard-desc,
+html[data-theme="dark"] .msg-bubble .body{color:var(--muted);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+html,body{overflow-x:clip;max-width:100%;}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.6;
+  background-image:radial-gradient(circle,#00000009 1px,transparent 1px);
+  background-size:22px 22px;
+}
+a{color:inherit;}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+.mono{font-family:var(--mono);}
 
-    :root {
-      --bg: #080c10;
-      --surface: #0d1117;
-      --border: rgba(255, 255, 255, 0.07);
-      --white: #f0f4f8;
-      --muted: #7a8898;
-      --accent: #00e5ff;
-      --accent2: #7c3aed;
-      --accent3: #f0a500;
-      --card: rgba(255, 255, 255, 0.03);
-      --font-display: 'Playfair Display', serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-    }
+/* ===== Arabic / RTL ===== */
+html[dir="rtl"] body{font-family:var(--sans-ar);letter-spacing:0;}
+html[dir="rtl"] .mono,
+html[dir="rtl"] .breadcrumb-lg,
+html[dir="rtl"] .record-eyebrow,
+html[dir="rtl"] .field-label,
+html[dir="rtl"] .tab-link,
+html[dir="rtl"] .stack-group-name,
+html[dir="rtl"] .kanban-col-head,
+html[dir="rtl"] .rtag,
+html[dir="rtl"] .ktag,
+html[dir="rtl"] .log-date,
+html[dir="rtl"] .footer-copy,
+html[dir="rtl"] .saved-pill,
+html[dir="rtl"] .visitor-pill,
+html[dir="rtl"] .msg-chatter-head .who,
+html[dir="rtl"] .msg-field label,
+html[dir="rtl"] .edu-uni{font-family:var(--sans-ar);letter-spacing:0;}
+/* keep code-style breadcrumb LTR so paths read correctly */
+html[dir="rtl"] .breadcrumb-lg,
+html[dir="rtl"] .breadcrumb{direction:ltr;}
+/* directional flips */
+html[dir="rtl"] .field-label::before{content:none;}
+html[dir="rtl"] .field-label::after{content:'';width:16px;height:1.5px;background:var(--teal-deep);}
+html[dir="rtl"] .appbar-right{margin-left:0;margin-right:auto;}
+html[dir="rtl"] .kanban-col-head .count{margin-left:0;margin-right:auto;}
+html[dir="rtl"] .msg-chatter-head .who{margin-left:0;margin-right:auto;}
+html[dir="rtl"] .smart-btn{padding:8px 0 8px 20px;margin-right:0;margin-left:20px;border-right:none;border-left:1px solid var(--line);}
+html[dir="rtl"] .smart-btn:last-child{border-left:none;}
+html[dir="rtl"] .kcard{border-left:1px solid var(--line);border-right:3px solid var(--purple);}
+html[dir="rtl"] .kcard.private{border-right-color:var(--gold);}
+html[dir="rtl"] .log-points li{padding-left:0;padding-right:16px;}
+html[dir="rtl"] .log-points li::before{left:auto;right:0;}
+html[dir="rtl"] .chatter{padding-left:0;padding-right:6px;}
+html[dir="rtl"] .chatter::before{left:auto;right:23px;}
+html[dir="rtl"] .log-entry{padding:0 62px 30px 0;}
+html[dir="rtl"] .log-avatar{left:auto;right:0;}
+html[dir="rtl"] .edu-uni i{margin-right:0;margin-left:4px;}
+html[dir="rtl"] .stack-group-name::after{content:none;}
+html[dir="rtl"] .stack-group-name::before{content:'';flex:1;height:1px;background:var(--line);}
+@media(max-width:640px){
+  html[dir="rtl"] .log-entry{padding-right:52px;padding-left:0;}
+  html[dir="rtl"] .chatter::before{right:18px;}
+}
 
-    html { scroll-behavior: smooth; }
+/* ===== Top App Bar ===== */
+.appbar{
+  position:sticky;top:0;z-index:200;
+  background:var(--purple);
+  color:#fff;
+}
+.appbar-inner{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  height:48px;display:flex;align-items:center;gap:14px;
+}
+.appgrid{
+  width:16px;height:16px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  flex-shrink:0;
+}
+.appgrid span{width:100%;height:100%;background:rgba(255,255,255,.65);border-radius:1px;}
+.breadcrumb{
+  font-size:12.5px;font-weight:500;
+  display:flex;align-items:center;gap:6px;
+  color:rgba(255,255,255,.85);
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+.breadcrumb b{color:#fff;font-weight:700;}
+.breadcrumb .sep{opacity:.5;}
+.appbar-right{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.status-chip{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  padding:4px 10px;border-radius:100px;
+  font-size:11.5px;font-weight:600;letter-spacing:.02em;
+}
+.status-chip .dot{width:6px;height:6px;border-radius:50%;background:#5CE0A0;box-shadow:0 0 0 3px rgba(92,224,160,.25);}
+.lang-toggle{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;cursor:pointer;
+  padding:4px 11px;border-radius:100px;
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;
+  transition:background .15s ease;
+}
+.lang-toggle:hover{background:rgba(255,255,255,.22);}
+.avatar-mini{
+  width:26px;height:26px;border-radius:6px;overflow:hidden;
+  border:1.5px solid rgba(255,255,255,.4);flex-shrink:0;
+}
+.avatar-mini img{width:100%;height:100%;object-fit:cover;display:block;}
 
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--white);
-      overflow-x: hidden;
-      cursor: none;
-      letter-spacing: -0.01em;
-      font-size: 16px;
-    }
+/* mobile menu toggle in appbar */
+.appbar-hamburger{
+  display:none;background:transparent;border:none;color:#fff;
+  font-size:16px;cursor:pointer;padding:6px;
+}
 
-    /* ── Custom Cursor ── */
-    .cursor {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform .1s;
-      mix-blend-mode: difference;
-    }
-    .cursor-ring {
-      position: fixed;
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(0, 229, 255, .4);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: all .18s ease;
-    }
+/* ===== Mobile drawer ===== */
+.mobile-menu{
+  display:none;position:fixed;top:48px;left:0;right:0;z-index:199;
+  background:var(--purple-deep);
+  transform:translateY(-8px);opacity:0;pointer-events:none;
+  transition:all .25s ease;
+}
+.mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:all;}
+.mobile-menu ul{list-style:none;padding:10px 24px 18px;}
+.mobile-menu a{
+  display:block;padding:12px 0;color:rgba(255,255,255,.85);
+  text-decoration:none;font-weight:600;font-size:14px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
 
-    /* ── Noise Overlay ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: .025;
-      pointer-events: none;
-      z-index: 0;
-    }
+/* ===== Form/Hero ===== */
+.record{padding:38px 0 0;}
+.breadcrumb-lg{
+  font-family:var(--mono);font-size:12.5px;color:var(--muted);
+  display:flex;align-items:center;gap:6px;margin-bottom:18px;flex-wrap:wrap;
+}
+.breadcrumb-lg .sep{opacity:.45;}
+.breadcrumb-lg .current{color:var(--purple);font-weight:600;}
 
-    /* ── Grid Lines ── */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(0, 229, 255, .025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 229, 255, .025) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
+.record-sheet{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:34px 34px 0;
+  box-shadow:0 1px 2px rgba(0,0,0,.03);
+}
+.record-head{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:24px;flex-wrap:wrap;padding-bottom:26px;
+  border-bottom:1px solid var(--line);
+}
+.record-title-wrap{max-width:640px;}
+.record-eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;
+  color:var(--teal-deep);text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:8px;display:flex;align-items:center;gap:6px;
+}
+.record-title{
+  font-size:clamp(2rem,4.4vw,3.1rem);font-weight:800;
+  letter-spacing:-.03em;line-height:1.05;color:var(--purple-deep);
+}
+.record-role{
+  margin-top:12px;color:var(--muted);font-size:1rem;line-height:1.7;font-weight:400;
+}
+.record-role strong{color:var(--ink);font-weight:600;}
+.record-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
 
-    /* ── Glow Orbs ── */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(120px);
-      z-index: 0;
-    }
-    .orb-1 {
-      width: 600px; height: 600px;
-      background: rgba(124, 58, 237, .12);
-      top: -200px; right: -100px;
-      animation: drift1 18s ease-in-out infinite;
-    }
-    .orb-2 {
-      width: 400px; height: 400px;
-      background: rgba(0, 229, 255, .08);
-      bottom: 10%; left: -100px;
-      animation: drift2 22s ease-in-out infinite;
-    }
-    @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-80px,60px)} }
-    @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(60px,-40px)} }
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:6px;font-size:13.5px;font-weight:700;
+  text-decoration:none;cursor:pointer;border:1px solid transparent;
+  transition:all .15s ease;letter-spacing:.01em;
+}
+.btn-primary{background:var(--teal);color:#fff;}
+.btn-primary:hover{background:var(--teal-deep);}
+.btn-outline{background:#fff;border-color:var(--line-strong);color:var(--ink);}
+.btn-outline:hover{border-color:var(--purple);color:var(--purple);}
+.btn-whatsapp{background:#25D366;color:#08341c;}
+.btn-whatsapp:hover{background:#1fb855;}
 
-    /* ── Navbar ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid transparent;
-      transition: all .4s;
-    }
-    nav.scrolled {
-      background: rgba(8, 12, 16, .9);
-      backdrop-filter: blur(20px);
-      border-color: var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: -.02em;
-      color: var(--white);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      font-style: italic;
-    }
-    .logo span { color: var(--accent); font-style: normal; }
+/* Smart buttons (Odoo stat buttons) */
+.smart-buttons{
+  display:flex;flex-wrap:wrap;gap:0;
+  padding:22px 0;border-bottom:1px solid var(--line);
+}
+.smart-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 20px 8px 0;margin-right:20px;
+  border-right:1px solid var(--line);
+  cursor:default;
+}
+.smart-btn:last-child{border-right:none;}
+.smart-btn i{font-size:15px;color:var(--purple);}
+.smart-btn .sb-num{font-weight:800;font-size:1.15rem;line-height:1;color:var(--ink);}
+.smart-btn .sb-lbl{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.03em;text-transform:uppercase;margin-top:2px;}
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 600;
-      text-decoration: none;
-      transition: color .2s;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-size: .72rem;
-    }
-    .nav-links a:hover { color: var(--accent); }
+/* tag row */
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 26px;}
+.rtag{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;
+  background:var(--purple-soft);color:var(--purple-deep);
+  padding:4px 11px;border-radius:100px;border:1px solid #e4d7e0;
+}
 
-    .nav-cta {
-      background: var(--accent);
-      color: #000;
-      padding: .55rem 1.4rem;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: .75rem;
-      text-decoration: none;
-      transition: all .2s;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-    .nav-cta:hover { background: #fff; }
+/* ===== Notebook tabs ===== */
+.notebook-tabs{
+  position:sticky;top:48px;z-index:150;
+  background:var(--bg);
+  border-bottom:1px solid var(--line-strong);
+  margin-top:26px;
+}
+.notebook-tabs::before{content:'';position:absolute;inset:0;background:var(--bg);z-index:-1;}
+.tabs-inner{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  display:flex;gap:6px;overflow-x:auto;
+}
+.tab-link{
+  font-family:var(--mono);font-size:12.5px;font-weight:600;
+  padding:13px 16px;color:var(--muted);text-decoration:none;
+  border-bottom:2.5px solid transparent;white-space:nowrap;
+  transition:all .15s ease;
+}
+.tab-link:hover{color:var(--purple);}
+.tab-link.active{color:var(--purple);border-bottom-color:var(--purple);}
 
-    /* ── Hamburger Button ── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--card);
-      cursor: none;
-      gap: 5px;
-      transition: border-color .2s, background .2s;
-      flex-shrink: 0;
-      padding: 0;
-    }
-    .nav-hamburger:hover {
-      border-color: rgba(0, 229, 255, .3);
-      background: rgba(0, 229, 255, .05);
-    }
-    .nav-hamburger .bar {
-      display: block;
-      width: 18px;
-      height: 1.5px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .25s, width .25s;
-      transform-origin: center;
-    }
-    /* Active / open state */
-    .nav-hamburger.open .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-hamburger.open .bar:nth-child(2) { opacity: 0; width: 0; }
-    .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+/* ===== Sections ===== */
+.page{padding:52px 0;}
+.page-head{margin-bottom:34px;}
+.field-label{
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  color:var(--teal-deep);text-transform:uppercase;letter-spacing:.09em;
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+.field-label::before{content:'';width:16px;height:1.5px;background:var(--teal-deep);}
+.page-title{font-size:clamp(1.55rem,3vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--purple-deep);margin-bottom:8px;}
+.page-sub{color:var(--muted);font-size:.92rem;max-width:600px;}
 
-    /* ── Mobile Drawer ── */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 99;
-      /* slides down from top */
-      transform: translateY(-100%);
-      transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .3s;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .mobile-menu.open {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    .mobile-menu-inner {
-      background: rgba(8, 12, 16, .97);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(0, 229, 255, .12);
-      padding: 90px 2rem 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    /* Subtle top gradient accent line */
-    .mobile-menu-inner::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
-    }
-    /* Decorative corner glow */
-    .mobile-menu-inner::after {
-      content: '';
-      position: absolute;
-      top: 0; right: -60px;
-      width: 220px; height: 220px;
-      background: radial-gradient(circle, rgba(0,229,255,.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
+/* ===== Chatter / activity log (Experience) ===== */
+.chatter{position:relative;padding-left:6px;}
+.chatter::before{
+  content:'';position:absolute;left:23px;top:8px;bottom:8px;width:2px;
+  background:var(--line-strong);
+}
+.log-entry{position:relative;padding:0 0 30px 62px;}
+.log-entry:last-child{padding-bottom:0;}
+.log-avatar{
+  position:absolute;left:0;top:0;width:48px;height:48px;border-radius:8px;
+  background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:18px;z-index:1;border:3px solid var(--bg);
+}
+.log-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;
+}
+.log-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+.log-company{font-weight:700;font-size:1.02rem;color:var(--ink);}
+.log-date{font-family:var(--mono);font-size:11.5px;color:var(--muted);background:var(--bg);padding:3px 9px;border-radius:100px;border:1px solid var(--line);white-space:nowrap;}
+.log-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);margin-bottom:14px;font-weight:500;}
+.log-meta span{display:inline-flex;align-items:center;gap:5px;}
+.log-meta i{color:var(--teal-deep);font-size:11px;}
+.log-points{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.log-points li{font-size:.87rem;color:#5a534c;padding-left:16px;position:relative;line-height:1.55;}
+.log-points li::before{content:'—';position:absolute;left:0;color:var(--purple);font-weight:700;}
 
-    .mobile-nav-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .15rem;
-      margin-bottom: 1.8rem;
-    }
-    .mobile-nav-links li {
-      opacity: 0;
-      transform: translateX(-16px);
-      transition: opacity .3s, transform .3s;
-    }
-    .mobile-menu.open .mobile-nav-links li {
-      opacity: 1;
-      transform: none;
-    }
-    /* stagger each link */
-    .mobile-menu.open .mobile-nav-links li:nth-child(1) { transition-delay: .08s; }
-    .mobile-menu.open .mobile-nav-links li:nth-child(2) { transition-delay: .13s; }
-    .mobile-menu.open .mobile-nav-links li:nth-child(3) { transition-delay: .18s; }
-    .mobile-menu.open .mobile-nav-links li:nth-child(4) { transition-delay: .23s; }
-    .mobile-menu.open .mobile-nav-links li:nth-child(5) { transition-delay: .28s; }
+/* ===== Kanban (Projects) ===== */
+.kanban{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+.kanban-col-head{
+  display:flex;align-items:center;gap:8px;margin-bottom:14px;
+  font-family:var(--mono);font-size:12px;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.kanban-col-head .stage-dot{width:8px;height:8px;border-radius:2px;}
+.kanban-col-head .count{margin-left:auto;background:var(--line);color:var(--ink);font-size:11px;padding:1px 8px;border-radius:100px;font-weight:700;}
+.kanban-col{display:flex;flex-direction:column;gap:14px;}
+.kcard{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;position:relative;overflow:hidden;
+  border-left:3px solid var(--purple);
+  transition:all .18s ease;
+}
+.kcard.private{border-left-color:var(--gold);}
+.kcard:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06);border-color:var(--line-strong);}
+.kcard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;}
+.kcard-icon{width:34px;height:34px;border-radius:7px;background:var(--purple-soft);color:var(--purple);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.kbadge{font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;white-space:nowrap;letter-spacing:.02em;}
+.kbadge.pub{background:#E4F5EE;color:#1D7A52;}
+.kbadge.priv{background:#FBF0DD;color:#95661C;}
+.kcard-name{font-weight:700;font-size:.95rem;margin-bottom:5px;color:var(--ink);}
+.kcard-desc{font-size:.81rem;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+.kcard-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+.ktag{font-family:var(--mono);font-size:10px;background:var(--bg);border:1px solid var(--line);color:#6b645c;padding:2px 8px;border-radius:4px;}
+.kcard-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--teal-deep);text-decoration:none;}
+.kcard-link:hover{gap:8px;}
 
-    .mobile-nav-links a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: .9rem 0;
-      color: var(--white);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.05rem;
-      letter-spacing: -.01em;
-      border-bottom: 1px solid var(--border);
-      transition: color .2s, padding-left .2s;
-    }
-    .mobile-nav-links a .link-icon {
-      color: var(--muted);
-      font-size: .7rem;
-      transition: color .2s, transform .2s;
-    }
-    .mobile-nav-links a:hover {
-      color: var(--accent);
-      padding-left: .4rem;
-    }
-    .mobile-nav-links a:hover .link-icon {
-      color: var(--accent);
-      transform: translateX(3px);
-    }
+/* ===== Education ===== */
+.edu-sheet{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 32px;display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;
+}
+.edu-badge{width:56px;height:56px;border-radius:10px;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;}
+.edu-degree{font-size:1.3rem;font-weight:800;color:var(--purple-deep);letter-spacing:-.01em;margin-bottom:4px;}
+.edu-uni{font-family:var(--mono);color:var(--teal-deep);font-weight:600;font-size:.83rem;margin-bottom:16px;}
+.edu-uni i{margin-right:4px;}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;}
+.pill{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);padding:6px 12px;border-radius:6px;font-size:.8rem;font-weight:600;color:var(--ink);}
+.pill i{color:var(--purple);font-size:11px;}
+.pill-sep{margin:16px 0 10px;font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
 
-    .mobile-menu-footer {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity .3s .35s, transform .3s .35s;
-    }
-    .mobile-menu.open .mobile-menu-footer {
-      opacity: 1;
-      transform: none;
-    }
+/* ===== Tech stack — grouped tag list ===== */
+.stack-group{margin-bottom:26px;}
+.stack-group:last-child{margin-bottom:0;}
+.stack-group-name{
+  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.stack-group-name::after{content:'';flex:1;height:1px;background:var(--line);}
+.stack-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.stack-tag{
+  display:flex;align-items:center;gap:9px;background:var(--surface);
+  border:1px solid var(--line);border-radius:7px;padding:9px 14px;
+  font-size:.82rem;font-weight:600;transition:all .15s;
+}
+.stack-tag:hover{border-color:var(--purple);transform:translateY(-2px);}
+.stack-tag i{font-size:16px;}
 
-    .mobile-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      background: var(--accent);
-      color: #000;
-      padding: .9rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: .88rem;
-      text-decoration: none;
-      transition: background .2s;
-      letter-spacing: .03em;
-    }
-    .mobile-cta:hover { background: #fff; }
+/* ===== Services — app tiles ===== */
+.apps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+.app-tile{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 18px;text-align:center;transition:all .18s;
+}
+.app-tile:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.06);border-color:var(--line-strong);}
+.app-tile-icon{
+  width:52px;height:52px;border-radius:12px;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;
+}
+.app-tile-title{font-weight:700;font-size:.88rem;margin-bottom:6px;color:var(--ink);}
+.app-tile-desc{font-size:.76rem;color:var(--muted);line-height:1.55;}
 
-    .mobile-socials {
-      display: flex;
-      gap: .75rem;
-    }
-    .mobile-socials a {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .4rem;
-      padding: .7rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--muted);
-      font-size: .78rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: border-color .2s, color .2s;
-    }
-    .mobile-socials a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+/* ===== CTA — dialog style ===== */
+.cta-dialog{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:44px;text-align:center;position:relative;
+  box-shadow:0 12px 32px rgba(76,49,69,.08);
+}
+.cta-dialog::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--purple),var(--teal));
+  border-radius:12px 12px 0 0;
+}
+.cta-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:var(--purple-deep);letter-spacing:-.02em;margin-bottom:10px;}
+.cta-sub{color:var(--muted);font-size:.92rem;max-width:460px;margin:0 auto 26px;line-height:1.7;}
+.cta-buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 
-    /* ── Hero ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 2rem 80px;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-inner {
-      max-width: 1200px;
-      margin: auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 4rem;
-      align-items: center;
-    }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(0, 229, 255, .07);
-      border: 1px solid rgba(0, 229, 255, .2);
-      color: var(--accent);
-      padding: .4rem 1rem;
-      border-radius: 100px;
-      font-size: .78rem;
-      font-weight: 600;
-      margin-bottom: 1.8rem;
-      letter-spacing: .04em;
-    }
-    .hero-tag i { font-size: .6rem; }
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 6vw, 5.8rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -.03em;
-      margin-bottom: 1rem;
-    }
-    .hero-name .line2 { color: var(--muted); font-weight: 400; font-style: italic; }
-    .hero-role {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-      line-height: 1.7;
-      max-width: 520px;
-      font-weight: 300;
-    }
-    .hero-role strong { color: var(--white); font-weight: 600; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+/* ===== Footer — status bar ===== */
+footer{border-top:1px solid var(--line-strong);padding:16px 0;background:var(--surface);}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.footer-copy{font-size:.78rem;color:var(--muted);font-family:var(--mono);}
+.saved-pill{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;color:#1D7A52;font-weight:700;font-family:var(--mono);}
+.saved-pill i{font-size:10px;}
+.visitor-pill{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted);font-family:var(--mono);}
+.visitor-pill .count{color:var(--purple);font-weight:700;}
+.footer-socials{display:flex;gap:8px;}
+.footer-socials a{width:30px;height:30px;border-radius:6px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:12px;transition:all .15s;}
+.footer-socials a:hover{border-color:var(--purple);color:var(--purple);}
 
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-      padding: .85rem 2rem;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: .88rem;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      transition: all .2s;
-      letter-spacing: .02em;
-    }
-    .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+/* ===== Send-message Chatter ===== */
+.msg-chatter{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.03);
+}
+.msg-chatter-head{
+  display:flex;align-items:center;gap:10px;padding:14px 20px;
+  border-bottom:1px solid var(--line);background:var(--purple-soft);
+}
+.msg-chatter-head i{color:var(--purple);}
+.msg-chatter-head b{font-size:.92rem;color:var(--purple-deep);}
+.msg-chatter-head .who{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--muted);direction:ltr;}
+.msg-body{padding:20px;}
+.msg-thread{display:flex;flex-direction:column;gap:12px;margin-bottom:18px;}
+.msg-bubble{display:flex;gap:10px;align-items:flex-start;}
+.msg-bubble .ava{
+  width:34px;height:34px;border-radius:7px;flex-shrink:0;
+  background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;
+}
+.msg-bubble .body{
+  background:var(--bg);border:1px solid var(--line);border-radius:8px;
+  padding:9px 13px;font-size:.85rem;color:#5a534c;line-height:1.55;
+}
+.msg-bubble.me .ava{background:var(--purple);}
+.msg-form{display:flex;flex-direction:column;gap:12px;}
+.msg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.msg-field label{
+  display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  color:var(--teal-deep);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;
+}
+.msg-field input,.msg-field textarea{
+  width:100%;font-family:var(--sans);font-size:.88rem;color:var(--ink);
+  background:#fff;border:1px solid var(--line-strong);border-radius:6px;padding:10px 12px;
+  transition:border-color .15s;resize:vertical;
+}
+html[dir="rtl"] .msg-field input,html[dir="rtl"] .msg-field textarea{font-family:var(--sans-ar);}
+.msg-field input:focus,.msg-field textarea:focus{outline:none;border-color:var(--purple);}
+.msg-send-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.msg-status{font-size:.82rem;font-weight:600;font-family:var(--mono);}
+.msg-status.ok{color:#1D7A52;}
+.msg-status.err{color:#c0392b;}
+@media(max-width:640px){.msg-row{grid-template-columns:1fr;}}
 
-    .btn-ghost {
-      border: 1px solid var(--border);
-      color: var(--white);
-      padding: .85rem 2rem;
-      border-radius: 6px;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: .88rem;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      transition: all .2s;
-    }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+/* highlight send button when contact scrolled into view */
+#mf-btn{border:2px solid transparent;transition:box-shadow .3s ease,border-color .3s ease;}
+#contact.in-view #mf-btn{
+  border-color:var(--purple);
+  box-shadow:0 0 0 4px rgba(113,75,103,.18);
+}
 
-    .hero-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-    .profile-wrap { position: relative; margin-bottom: 1.5rem; }
-    .profile-photo {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: 16px;
-      object-fit: cover;
-      display: block;
-    }
-    .status-dot {
-      position: absolute;
-      bottom: 12px; right: 12px;
-      background: #0d1117;
-      border-radius: 100px;
-      padding: .4rem .9rem;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: .75rem;
-      font-weight: 600;
-      border: 1px solid rgba(0, 229, 255, .2);
-      letter-spacing: .02em;
-    }
-    .dot {
-      width: 7px; height: 7px;
-      background: #22c55e;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+/* ===== Reveal ===== */
+.reveal{opacity:0;transform:translateY(18px);transition:all .55s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:none;}
 
-    .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-    .stat-box {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-    }
-    .stat-box .num {
-      font-family: var(--font-display);
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1;
-    }
-    .stat-box .lbl {
-      font-size: .72rem;
-      color: var(--muted);
-      margin-top: .3rem;
-      font-weight: 500;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .hero-links { display: flex; gap: .75rem; margin-top: 1rem; }
-    .hero-link {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .4rem;
-      padding: .6rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--muted);
-      font-size: .78rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all .2s;
-      letter-spacing: .02em;
-    }
-    .hero-link:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── Sections ── */
-    section { position: relative; z-index: 1; }
-    .container { max-width: 1200px; margin: auto; padding: 0 2rem; }
-    .section-pad { padding: 100px 0; }
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
-    .section-heading {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -.03em;
-      margin-bottom: 1rem;
-      line-height: 1.1;
-    }
-    .section-sub {
-      color: var(--muted);
-      font-size: .95rem;
-      max-width: 560px;
-      line-height: 1.75;
-      margin-bottom: 3.5rem;
-      font-weight: 300;
-    }
-
-    /* ── Experience ── */
-    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .exp-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.5rem;
-      transition: all .3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .exp-card::after {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: .3s;
-    }
-    .exp-card:hover { border-color: rgba(0, 229, 255, .2); transform: translateX(4px); }
-    .exp-card:hover::after { opacity: 1; }
-    .exp-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-    .exp-icon.purple { background: rgba(124, 58, 237, .15); color: var(--accent2); }
-    .exp-icon.cyan { background: rgba(0, 229, 255, .1); color: var(--accent); }
-    .exp-company { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: .3rem; }
-    .exp-meta {
-      font-size: .78rem;
-      color: var(--muted);
-      margin-bottom: .8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-weight: 500;
-      letter-spacing: .02em;
-    }
-    .exp-meta span { display: inline-flex; align-items: center; gap: .3rem; }
-    .exp-points { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
-    .exp-points li {
-      font-size: .87rem;
-      color: rgba(240, 244, 248, .7);
-      padding-left: 1rem;
-      position: relative;
-      line-height: 1.5;
-    }
-    .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: .75rem; }
-
-    /* ── Projects ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
-    .proj-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: all .3s;
-      position: relative;
-    }
-    .proj-card:hover {
-      border-color: rgba(0, 229, 255, .25);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
-    }
-    .proj-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-    .proj-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-    .proj-badge {
-      background: rgba(239, 68, 68, .1);
-      color: #ef4444;
-      border: 1px solid rgba(239, 68, 68, .2);
-      padding: .25rem .7rem;
-      border-radius: 100px;
-      font-size: .68rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: .3rem;
-      white-space: nowrap;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .proj-name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
-    .proj-desc { font-size: .84rem; color: var(--muted); line-height: 1.65; flex: 1; font-weight: 300; }
-    .proj-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tag { background: rgba(255, 255, 255, .05); border: 1px solid var(--border); color: var(--muted); padding: .2rem .65rem; border-radius: 4px; font-size: .7rem; font-weight: 600; letter-spacing: .03em; }
-    .proj-link { display: inline-flex; align-items: center; gap: .4rem; color: var(--accent); font-size: .8rem; font-weight: 700; text-decoration: none; margin-top: .5rem; transition: gap .2s; letter-spacing: .02em; }
-    .proj-link:hover { gap: .6rem; }
-
-    /* ── Education ── */
-    .edu-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2.5rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 2rem;
-      align-items: start;
-      position: relative;
-      overflow: hidden;
-    }
-    .edu-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
-    .edu-badge { width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, rgba(124, 58, 237, .2), rgba(0, 229, 255, .1)); border: 1px solid rgba(124, 58, 237, .3); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
-    .edu-degree { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: .4rem; line-height: 1.1; }
-    .edu-uni { color: var(--accent); font-weight: 600; margin-bottom: 1rem; font-size: .92rem; letter-spacing: .02em; }
-    .edu-pills { display: flex; flex-wrap: wrap; gap: .6rem; }
-    .edu-pill { display: flex; align-items: center; gap: .4rem; background: rgba(255, 255, 255, .04); border: 1px solid var(--border); padding: .4rem .9rem; border-radius: 8px; font-size: .8rem; color: var(--white); font-weight: 500; }
-    .edu-pill i { color: var(--accent); font-size: .78rem; }
-    .edu-activities { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
-
-    /* ── Tech Stack ── */
-    .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1rem; }
-    .tech-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1rem; display: flex; align-items: center; gap: .9rem; transition: all .25s; cursor: default; }
-    .tech-item:hover { border-color: rgba(0, 229, 255, .25); background: rgba(0, 229, 255, .04); transform: translateY(-3px); }
-    .tech-item i { font-size: 1.5rem; flex-shrink: 0; }
-    .tech-item-name { font-size: .84rem; font-weight: 700; line-height: 1.2; letter-spacing: .01em; }
-    .tech-item-sub { font-size: .7rem; color: var(--muted); margin-top: .15rem; font-weight: 400; }
-
-    /* ── Services ── */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-    .svc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all .3s; position: relative; overflow: hidden; }
-    .svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: .3s; }
-    .svc-card:hover { border-color: rgba(0, 229, 255, .2); transform: translateY(-4px); }
-    .svc-card:hover::after { transform: scaleX(1); }
-    .svc-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; }
-    .svc-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: .6rem; }
-    .svc-desc { font-size: .85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: linear-gradient(135deg, rgba(124, 58, 237, .12), rgba(0, 229, 255, .06));
-      border: 1px solid rgba(0, 229, 255, .15);
-      border-radius: 24px;
-      padding: 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300e5ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .cta-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -.03em; margin-bottom: 1rem; }
-    .cta-sub { color: var(--muted); font-size: .95rem; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; font-weight: 300; }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-whatsapp { background: #25d366; color: #000; padding: 1rem 2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: .6rem; transition: all .2s; font-size: .88rem; }
-    .btn-whatsapp:hover { background: #1fb855; transform: translateY(-2px); }
-
-    /* ── Footer ── */
-    footer { border-top: 1px solid var(--border); padding: 2.5rem 0; position: relative; z-index: 1; }
-    .footer-inner { max-width: 1200px; margin: auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-copy { font-size: .8rem; color: var(--muted); font-weight: 400; }
-    .visitor-pill { display: inline-flex; align-items: center; gap: .5rem; background: var(--card); border: 1px solid var(--border); padding: .4rem 1rem; border-radius: 100px; font-size: .78rem; color: var(--muted); }
-    .visitor-pill .count { color: var(--accent); font-weight: 700; font-family: var(--font-display); }
-    .footer-socials { display: flex; gap: .75rem; }
-    .footer-socials a { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: all .2s; font-size: .85rem; }
-    .footer-socials a:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── Back to Top ── */
-    #btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--accent); color: #000; border: none; border-radius: 10px; font-size: 1rem; cursor: none; opacity: 0; visibility: hidden; transition: all .3s; z-index: 200; }
-    #btt.show { opacity: 1; visibility: visible; }
-    #btt:hover { background: #fff; transform: translateY(-4px); }
-
-    /* ── Scroll Reveal ── */
-    .reveal { opacity: 0; transform: translateY(30px); transition: all .7s cubic-bezier(.22, 1, .36, 1); }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── Responsive ── */
-    @media(max-width:900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-card { max-width: 400px; }
-      .profile-photo { max-height: 260px; }
-      .mini-stats { grid-template-columns: repeat(4, 1fr); }
-      .edu-card { grid-template-columns: 1fr; }
-    }
-
-    @media(max-width:600px) {
-      /* Hide desktop nav elements */
-      .nav-links,
-      .nav-cta { display: none; }
-
-      /* Show hamburger */
-      .nav-hamburger { display: flex; }
-
-      /* Show mobile drawer */
-      .mobile-menu { display: block; }
-
-      .mini-stats { grid-template-columns: repeat(2, 1fr); }
-      .projects-grid { grid-template-columns: 1fr; }
-      .tech-grid { grid-template-columns: repeat(2, 1fr); }
-      .services-grid { grid-template-columns: 1fr; }
-
-      .cta-section { padding: 2.5rem 1.5rem; }
-    }
-  </style>
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .kanban{grid-template-columns:1fr;}
+  .edu-sheet{grid-template-columns:1fr;}
+  .edu-badge{margin-bottom:6px;}
+}
+@media(max-width:640px){
+  .appbar-hamburger{display:block;}
+  .lang-toggle{display:none;}
+  .mobile-menu{display:block;}
+  .notebook-tabs{display:none;}
+  .container{padding:0 16px;}
+  .appbar-inner{padding:0 16px;}
+  .page{padding:38px 0;}
+  .record{padding:24px 0 0;}
+  .record-sheet{padding:24px 18px 0;}
+  .record-head{gap:16px;}
+  .record-actions{width:100%;}
+  .record-actions .btn{flex:1;justify-content:center;}
+  .smart-buttons{padding:16px 0;gap:6px;}
+  .smart-btn{margin-right:14px;padding-right:14px;}
+  .apps-grid{grid-template-columns:repeat(2,1fr);}
+  .cta-dialog{padding:30px 20px;}
+  .log-entry{padding-left:52px;}
+  .log-avatar{width:38px;height:38px;font-size:15px;}
+  .chatter::before{left:18px;}
+  .edu-sheet{padding:22px 18px;}
+  .msg-body{padding:16px;}
+  .footer-inner{justify-content:center;text-align:center;}
+}
+@media(max-width:420px){
+  body{font-size:14px;}
+  .record-title{font-size:1.9rem;}
+  .apps-grid{grid-template-columns:1fr;}
+  .smart-buttons{overflow-x:auto;flex-wrap:nowrap;}
+  .smart-btn{flex-shrink:0;}
+  .status-chip{display:none;}
+  .record-actions{flex-direction:column;}
+  .record-actions .btn{width:100%;}
+  .cta-buttons{flex-direction:column;}
+  .cta-buttons .btn{width:100%;justify-content:center;}
+}
+</style>
 </head>
-
 <body>
 
-  <!-- Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+<!-- App bar -->
+<div class="appbar">
+  <div class="appbar-inner">
+    <div class="appgrid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="breadcrumb"><b data-ar="من أنا">Portfolio</b><span class="sep">/</span><span data-ar="محمود صبري نصر">Mahmoud Sabry Nasr</span></div>
+    <div class="appbar-right">
+      <div class="status-chip"><span class="dot"></span> <span data-ar="متاح">Available</span></div>
+      <button class="lang-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language"><i class="fas fa-language"></i> <span id="langLabel">العربية</span></button>
+      <div class="avatar-mini"><img src="mahmoud.png" alt="Mahmoud Sabry Nasr" onerror="this.parentElement.style.background='rgba(255,255,255,.2)'"/></div>
+      <button class="appbar-hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</div>
 
-  <!-- Background -->
-  <div class="grid-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#experience" class="mnav" data-ar="الخبرة">Experience</a></li>
+    <li><a href="#projects" class="mnav" data-ar="المشاريع">Projects</a></li>
+    <li><a href="#education" class="mnav" data-ar="التعليم">Education</a></li>
+    <li><a href="#tech" class="mnav" data-ar="التقنيات">Tech Stack</a></li>
+    <li><a href="#services" class="mnav" data-ar="الخدمات">Services</a></li>
+    <li><a href="#contact" class="mnav" data-ar="تواصل معي">Contact</a></li>
+    <li><a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" target="_blank" class="mnav" data-ar="تحميل السيرة الذاتية ↓">Download CV ↓</a></li>
+    <li><a href="#" id="themeToggleMobile"><i class="fas fa-moon" id="themeIconMobile"></i> <span id="themeLabelMobile">Dark mode</span></a></li>
+    <li><a href="#" id="langToggleMobile"><i class="fas fa-language"></i> <span id="langLabelMobile">العربية</span></a></li>
+  </ul>
+</div>
 
-  <!-- Mobile Drawer (rendered before nav so z-index stacking is correct) -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <ul class="mobile-nav-links">
-        <li><a href="#experience" class="mobile-nav-link">Experience <i class="fas fa-arrow-right link-icon"></i></a></li>
-        <li><a href="#projects" class="mobile-nav-link">Projects <i class="fas fa-arrow-right link-icon"></i></a></li>
-        <li><a href="#education" class="mobile-nav-link">Education <i class="fas fa-arrow-right link-icon"></i></a></li>
-        <li><a href="#tech" class="mobile-nav-link">Stack <i class="fas fa-arrow-right link-icon"></i></a></li>
-        <li><a href="#services" class="mobile-nav-link">Services <i class="fas fa-arrow-right link-icon"></i></a></li>
-      </ul>
-      <div class="mobile-menu-footer">
-        <a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" target="_blank" class="mobile-cta">
-          <i class="fas fa-download"></i> Download CV
-        </a>
-        <div class="mobile-socials">
-          <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-          <a href="https://github.com/MahmoudsNasr77" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://wa.me/201552404457" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<!-- Hero / Form -->
+<section class="record">
+  <div class="container">
+    <div class="breadcrumb-lg mono">
+      <span>res.developer</span><span class="sep">/</span><span>odoo</span><span class="sep">/</span><span class="current">mahmoud_sabry_nasr</span>
+    </div>
+
+    <div class="record-sheet reveal">
+      <div class="record-head">
+        <div class="record-title-wrap">
+          <div class="record-eyebrow"><i class="fas fa-database"></i> <span data-ar="مطوّر واجهة خلفية · أخصائي أنظمة أودو ERP">Backend Developer · Odoo ERP Specialist</span></div>
+          <h1 class="record-title" data-ar="محمود صبري نصر">Mahmoud Sabry Nasr</h1>
+          <p class="record-role" data-ar='بناء <strong>وحدات أودو</strong> للمؤسسات، و<strong>واجهات REST API</strong> آمنة، وأنظمة خلفية قابلة للتوسّع. مقيم في <strong>مصر</strong>، وأعمل مع عملاء في السعودية ومصر.'>Building enterprise <strong>Odoo modules</strong>, secure <strong>REST APIs</strong>, and scalable backend systems. Based in <strong>Egypt</strong>, working with clients across Saudi Arabia And Egypt.</p>
+        </div>
+        <div class="record-actions">
+          <a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" target="_blank" class="btn btn-primary"><i class="fas fa-download"></i> <span data-ar="تحميل السيرة الذاتية">Download CV</span></a>
+          <a href="mailto:mahmoudsabrynasr@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> <span data-ar="تواصل">Contact</span></a>
+        </div>
+      </div>
+
+      <div class="smart-buttons">
+        <div class="smart-btn"><i class="fas fa-calendar-check"></i><div><div class="sb-num">1+</div><div class="sb-lbl" data-ar="سنوات خبرة">Years Exp</div></div></div>
+        <div class="smart-btn"><i class="fas fa-diagram-project"></i><div><div class="sb-num">9</div><div class="sb-lbl" data-ar="مشاريع">Projects</div></div></div>
+        <div class="smart-btn"><i class="fas fa-building"></i><div><div class="sb-num">2</div><div class="sb-lbl" data-ar="شركات">Companies</div></div></div>
+        <div class="smart-btn"><i class="fas fa-store"></i><div><div class="sb-num">4</div><div class="sb-lbl" data-ar="تطبيقات أودو">Odoo Apps</div></div></div>
+        <div class="smart-btn"><i class="fas fa-graduation-cap"></i><div><div class="sb-num">3.74</div><div class="sb-lbl" data-ar="المعدل / 4.0">GPA / 4.0</div></div></div>
+      </div>
+
+      <div class="tag-row">
+        <span class="rtag">hr.attendance</span>
+        <span class="rtag">rest.api</span>
+        <span class="rtag">jwt.auth</span>
+        <span class="rtag">l10n_ar</span>
+        <span class="rtag">postgresql</span>
+        <span class="rtag">odoo.sh</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notebook tabs -->
+<div class="notebook-tabs">
+  <div class="tabs-inner">
+    <a href="#experience" class="tab-link mono" data-ar="الخبرة">Experience</a>
+    <a href="#projects" class="tab-link mono" data-ar="المشاريع">Projects</a>
+    <a href="#education" class="tab-link mono" data-ar="التعليم">Education</a>
+    <a href="#tech" class="tab-link mono" data-ar="التقنيات">Tech Stack</a>
+    <a href="#services" class="tab-link mono" data-ar="الخدمات">Services</a>
+    <a href="#contact" class="tab-link mono" data-ar="تواصل">Contact</a>
+  </div>
+</div>
+
+<!-- Experience -->
+<section id="experience" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="سجل النشاط">Activity Log</div>
+      <h2 class="page-title" data-ar="الخبرة العملية">Work Experience</h2>
+      <p class="page-sub" data-ar="وحدات أودو وواجهات API في بيئة الإنتاج، مسجّلة زمنياً — مثل سجل المحادثات (Chatter) في أودو.">Production Odoo modules and APIs, logged chronologically — like Odoo's own chatter thread.</p>
+    </div>
+
+    <div class="chatter">
+      <div class="log-entry reveal">
+        <div class="log-avatar"><i class="fas fa-building"></i></div>
+        <div class="log-card">
+          <div class="log-top">
+            <div class="log-company" data-ar="iHR — الموارد البشرية الدولية">iHR — International Human Resources SA</div>
+            <div class="log-date" data-ar="سبتمبر 2025 → حتى الآن">Sep 2025 → Present</div>
+          </div>
+          <div class="log-meta">
+            <span><i class="fas fa-briefcase"></i> <span data-ar="مطوّر أودو">Odoo Developer</span></span>
+            <span><i class="fas fa-map-marker-alt"></i> <span data-ar="هجين · مصر">Hybrid · Egypt</span></span>
+            <span><i class="fas fa-clock"></i> <span data-ar="دوام كامل">Full Time</span></span>
+          </div>
+          <ul class="log-points">
+            <li data-ar="تطوير وتخصيص وحدات الموارد البشرية للمؤسسات لأتمتة العمليات.">Developed and customized enterprise HR modules for business process automation</li>
+            <li data-ar="بناء واجهات REST API آمنة وبوابات مستخدمين مع مصادقة قائمة على الأدوار.">Built secure REST APIs and user portals with role-based authentication</li>
+            <li data-ar="دمج خدمات خارجية وأتمتة أنظمة سير العمل من البداية للنهاية.">Integrated third-party services and automated end-to-end workflow systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="log-entry reveal">
+        <div class="log-avatar"><i class="fas fa-globe"></i></div>
+        <div class="log-card">
+          <div class="log-top">
+            <div class="log-company" data-ar="شركة التقنية الحديثة">Modern Technology Company</div>
+            <div class="log-date" data-ar="يوليو 2025 → سبتمبر 2025">Jul 2025 → Sep 2025</div>
+          </div>
+          <div class="log-meta">
+            <span><i class="fas fa-briefcase"></i> <span data-ar="مطوّر أودو">Odoo Developer</span></span>
+            <span><i class="fas fa-map-marker-alt"></i> <span data-ar="عن بُعد · العراق">Remote · Iraq</span></span>
+            <span><i class="fas fa-clock"></i> <span data-ar="دوام جزئي">Part Time</span></span>
+          </div>
+          <ul class="log-points">
+            <li data-ar="تخصيص وحدات المبيعات والمشتريات لتلائم عمليات العميل الفريدة.">Customized Sales & Purchase modules to match unique client operations</li>
+            <li data-ar="تطوير لوحات تقارير متقدمة مصممة حسب مؤشرات الأداء (KPIs).">Developed advanced reporting dashboards tailored to business KPIs</li>
+            <li data-ar="التعاون عن بُعد مع فرق عابرة للحدود لتقديم حلول ERP قابلة للتوسّع.">Collaborated remotely with cross-border teams to deliver scalable ERP solutions</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a class="logo" href="#"><span>//</span> Mahmoud.dev</a>
-      <ul class="nav-links">
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#tech">Stack</a></li>
-        <li><a href="#services">Services</a></li>
-      </ul>
-      <a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" target="_blank" class="nav-cta">Download CV</a>
-
-      <!-- Hamburger (mobile only) -->
-      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+<!-- Projects — Kanban -->
+<section id="projects" class="page" style="background:linear-gradient(180deg,transparent,#714B6708,transparent);">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="عرض كانبان">Kanban View</div>
+      <h2 class="page-title" data-ar="مشاريع مختارة">Featured Projects</h2>
+      <p class="page-sub" data-ar="مجمّعة حسب المرحلة — تطبيقات أودو منشورة ومشاريع عملاء خاصة — بالإضافة إلى أنظمة خلفية بلغة بايثون وDjango.">Grouped by stage — published Odoo Apps and private client builds — plus backend systems in Python & Django.</p>
     </div>
-  </nav>
 
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-tag"><i class="fas fa-circle" style="color:#22c55e;font-size:.6rem"></i> Available for new projects</div>
-        <h1 class="hero-name">
-          <div>Mahmoud</div>
-          <div>Sabry</div>
-          <div class="line2">Nasr</div>
-        </h1>
-        <p class="hero-role">
-          <strong>Backend & Odoo Developer</strong> crafting enterprise ERP solutions, REST APIs, and scalable systems.
-          Based in <strong>Egypt</strong>, working globally.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn-primary"><i class="fas fa-arrow-right"></i> View Work</a>
-          <a href="mailto:mahmoudsabrynasr@gmail.com" class="btn-ghost"><i class="fas fa-envelope"></i> Get in Touch</a>
-        </div>
-      </div>
+    <div class="kanban">
+      <div class="reveal">
+        <div class="kanban-col-head"><span class="stage-dot" style="background:var(--purple)"></span> <span data-ar="منشور">Published</span> <span class="count">4</span></div>
+        <div class="kanban-col">
 
-      <div class="hero-card reveal">
-        <div class="profile-wrap">
-          <img src="mahmoud.png" alt="Mahmoud Sabry Nasr" class="profile-photo"
-            onerror="this.style.background='linear-gradient(135deg,rgba(124,58,237,.3),rgba(0,229,255,.2))';this.style.minHeight='260px';" />
-        </div>
-        <div class="stat-box" style="text-align:center;">
-          <div class="num">1+</div>
-          <div class="lbl">Years Exp</div>
-        </div>
-        <div class="hero-links">
-          <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank" class="hero-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-          <a href="https://github.com/MahmoudsNasr77" target="_blank" class="hero-link"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://wa.me/201552404457" target="_blank" class="hero-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" class="section-pad">
-    <div class="container">
-      <div class="label">Career</div>
-      <h2 class="section-heading reveal">Work Experience</h2>
-      <p class="section-sub reveal">Building production-ready Odoo modules and APIs for companies across Egypt, Saudi Arabia, Iraq and beyond.</p>
-      <div class="exp-list">
-        <div class="exp-card reveal">
-          <div class="exp-icon cyan"><i class="fas fa-building"></i></div>
-          <div>
-            <div class="exp-company">iHR — International Human Resources SA</div>
-            <div class="exp-meta">
-              <span><i class="fas fa-briefcase"></i> Odoo Developer</span>
-              <span><i class="fas fa-calendar"></i> Sep 2025 – Present</span>
-              <span><i class="fas fa-map-marker-alt"></i> Hybrid · Egypt</span>
-              <span><i class="fas fa-clock"></i> Full Time</span>
+          <div class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-chart-bar"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
             </div>
-            <ul class="exp-points">
-              <li>Developed and customized enterprise HR modules for business process automation</li>
-              <li>Built secure REST APIs and user portals with role-based authentication</li>
-              <li>Integrated third-party services and automated end-to-end workflow systems</li>
-            </ul>
+            <div class="kcard-name" data-ar="لوحة الحضور">Attendance Dashboard</div>
+            <div class="kcard-desc" data-ar="لوحة حضور لأودو 18 — تتبّع الدخول/الخروج لحظياً، تحليلات قابلة للفلترة، ومؤشرات أداء مرئية لمديري الموارد البشرية.">Odoo 18 attendance dashboard — real-time check-in/out tracking, filterable analytics, visual KPIs for HR managers.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag">Python</span><span class="ktag">OWL</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/attendance_dashboard" class="kcard-link" target="_blank"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
           </div>
-        </div>
-        <div class="exp-card reveal">
-          <div class="exp-icon purple"><i class="fas fa-globe"></i></div>
-          <div>
-            <div class="exp-company">Modern Technology Company</div>
-            <div class="exp-meta">
-              <span><i class="fas fa-briefcase"></i> Odoo Developer</span>
-              <span><i class="fas fa-calendar"></i> Jul 2025 – Sep 2025</span>
-              <span><i class="fas fa-map-marker-alt"></i> Remote · Iraq</span>
-              <span><i class="fas fa-clock"></i> Part Time</span>
+
+          <div class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-moon"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
             </div>
-            <ul class="exp-points">
-              <li>Customized Sales & Purchase modules to match unique client operations</li>
-              <li>Developed advanced reporting dashboards tailored to business KPIs</li>
-              <li>Collaborated remotely with cross-border teams to deliver scalable ERP solutions</li>
-            </ul>
+            <div class="kcard-name" data-ar="نظام المواريث الإسلامية">Islamic Inheritance System</div>
+            <div class="kcard-desc" data-ar="يحسب المواريث الإسلامية وفق الشريعة — يوزّع أنصبة التركة على الورثة تلقائياً.">Calculates Islamic inheritance (Mirath) per Sharia law — auto-distributes estate shares among heirs.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag">Python</span><span class="ktag" data-ar="أحكام الفقه">Fiqh Rules</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/Inheritance" class="kcard-link" target="_blank"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
           </div>
+
+          <div class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
+            </div>
+            <div class="kcard-name" data-ar="بوابة قسائم الرواتب">Payslip Portal</div>
+            <div class="kcard-desc" data-ar="بوابة خدمة ذاتية للموظفين — وصول آمن لقسائم الرواتب الشهرية وتفاصيل الخصومات والاستحقاقات.">Employee self-service portal — secure access to monthly salary slips, deductions and earnings breakdown.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag" data-ar="بوابة">Portal</span><span class="ktag" data-ar="رواتب">Payroll</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/payslip_portal" class="kcard-link" target="_blank"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-exchange-alt"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
+            </div>
+            <div class="kcard-name" data-ar="تكاملات Tamm">Tamm Integrations</div>
+            <div class="kcard-desc" data-ar="يربط منصة Tamm بسير عمل الـ ERP عبر اتصال API آمن ومزامنة بيانات تلقائية.">Bridges the Tamm platform with ERP workflows via secure API communication and automated data sync.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag">API</span><span class="ktag" data-ar="تكامل">Integration</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/Tamm_Integrations" class="kcard-link" target="_blank"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="kanban-col-head"><span class="stage-dot" style="background:var(--gold)"></span> <span data-ar="أعمال أخرى">Other Builds</span> <span class="count">5</span></div>
+        <div class="kanban-col">
+
+          <div class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-school"></i></div>
+              <span class="kbadge pub" style="background:#EAF1FB;color:#2B5CA8;">GitHub</span>
+            </div>
+            <div class="kcard-name" data-ar="إدارة المدارس على أودو">Odoo School Management</div>
+            <div class="kcard-desc" data-ar="نظام ERP للمدارس على أودو — تسجيل، تتبّع الحضور، وحدات الدرجات، وبوابات أصحاب المصلحة.">School ERP on Odoo — registration, attendance tracking, grading modules, stakeholder portals.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo</span><span class="ktag">Python</span><span class="ktag">PostgreSQL</span></div>
+            <a href="https://github.com/MahmoudsNasr77/odoo-school-management" class="kcard-link" target="_blank"><span data-ar="عرض على GitHub">View on GitHub</span> <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="kcard private">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-store"></i></div>
+              <span class="kbadge priv" data-ar="خاص">Private</span>
+            </div>
+            <div class="kcard-name" data-ar="Ceramic Palace — متجر إلكتروني">Ceramic Palace — eCommerce</div>
+            <div class="kcard-desc" data-ar="موقع تجارة إلكترونية متكامل بـ Django وPostgreSQL — استعلامات محسّنة، كتالوج، سلة، ودفع.">Full-featured e-commerce site with Django and PostgreSQL — optimized queries, catalog, cart, checkout.</div>
+            <div class="kcard-tags"><span class="ktag">Django</span><span class="ktag">PostgreSQL</span><span class="ktag">DRF</span></div>
+          </div>
+
+          <div class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-leaf"></i></div>
+              <span class="kbadge pub" style="background:#EAF1FB;color:#2B5CA8;">GitHub</span>
+            </div>
+            <div class="kcard-name" data-ar="نظام الزراعة الذكية">Smart Farming System</div>
+            <div class="kcard-desc" data-ar="نظام زراعة متصل بإنترنت الأشياء — استقبال بيانات الحساسات، تحليلات لحظية، وواجهات API للأجهزة.">IoT-connected farming system — sensor data ingestion, real-time analytics, RESTful device APIs.</div>
+            <div class="kcard-tags"><span class="ktag">Django</span><span class="ktag">IoT</span><span class="ktag">REST API</span></div>
+            <a href="https://github.com/MahmoudsNasr77/Smart-Farming--" class="kcard-link" target="_blank"><span data-ar="عرض على GitHub">View on GitHub</span> <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="kcard private">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-boxes"></i></div>
+              <span class="kbadge priv" data-ar="خاص">Private</span>
+            </div>
+            <div class="kcard-name" data-ar="نظام مخزون FCI ZU">FCI ZU Inventory System</div>
+            <div class="kcard-desc" data-ar="واجهة API لإدارة المخزون لكلية حاسبات جامعة الزقازيق — الخلفية التي تشغّل كل عمليات الواجهة، مع مصادقة كاملة.">RESTful inventory API for FCI Zagazig University — backend powering all frontend operations, full auth.</div>
+            <div class="kcard-tags"><span class="ktag">DRF</span><span class="ktag">JWT</span><span class="ktag">Django</span></div>
+          </div>
+
+          <div class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-briefcase"></i></div>
+              <span class="kbadge pub" style="background:#EAF1FB;color:#2B5CA8;">GitHub</span>
+            </div>
+            <div class="kcard-name" data-ar="منصة لوحة وظائف">Job Board Platform</div>
+            <div class="kcard-desc" data-ar="لوحة وظائف متكاملة — ملفات أصحاب العمل، نشر الوظائف، تتبّع المتقدمين، ومصادقة.">Feature-complete job board — employer profiles, job postings, applicant tracking, authentication.</div>
+            <div class="kcard-tags"><span class="ktag">Django</span><span class="ktag">PostgreSQL</span></div>
+            <a href="https://github.com/MahmoudsNasr77/Django-Job-Website" class="kcard-link" target="_blank"><span data-ar="عرض على GitHub">View on GitHub</span> <i class="fas fa-arrow-right"></i></a>
+          </div>
+
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects -->
-  <section id="projects" class="section-pad" style="background:linear-gradient(180deg,transparent,rgba(124,58,237,.04),transparent);">
-    <div class="container">
-      <div class="label">Work</div>
-      <h2 class="section-heading reveal">Featured Projects</h2>
-      <p class="section-sub reveal">A selection of systems built with Python, Django, and Odoo.</p>
-      <div class="projects-grid">
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(0,229,255,.12);color:#00e5ff;"><i class="fas fa-chart-bar"></i></div>
-            <span class="proj-badge" style="background:rgba(34,197,94,.1);color:#22c55e;border-color:rgba(34,197,94,.2);"><i class="fas fa-store"></i> Published</span>
-          </div>
-          <div class="proj-name">Attendance Dashboard</div>
-          <div class="proj-desc">A comprehensive Odoo 18 attendance dashboard module — real-time employee check-in/out tracking, filterable analytics, and visual KPIs for HR managers.</div>
-          <div class="proj-tags"><span class="tag">Odoo 18</span><span class="tag">Python</span><span class="tag">OWL</span><span class="tag">XML</span></div>
-          <a href="https://apps.odoo.com/apps/modules/18.0/attendance_dashboard" class="proj-link" target="_blank">View on Odoo Apps <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(240,165,0,.12);color:#f0a500;"><i class="fas fa-moon"></i></div>
-            <span class="proj-badge" style="background:rgba(34,197,94,.1);color:#22c55e;border-color:rgba(34,197,94,.2);"><i class="fas fa-store"></i> Published</span>
-          </div>
-          <div class="proj-name">Islamic Inheritance System</div>
-          <div class="proj-desc">Odoo 18 module that calculates Islamic inheritance (Mirath) according to Sharia law — automatically distributes estate shares among heirs based on Islamic jurisprudence rules.</div>
-          <div class="proj-tags"><span class="tag">Odoo 18</span><span class="tag">Python</span><span class="tag">XML</span><span class="tag">Sharia Law</span></div>
-          <a href="https://apps.odoo.com/apps/modules/18.0/Inheritance" class="proj-link" target="_blank">View on Odoo Apps <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(245,158,11,.12);color:#f59e0b;"><i class="fas fa-file-invoice-dollar"></i></div>
-            <span class="proj-badge" style="background:rgba(34,197,94,.1);color:#22c55e;border-color:rgba(34,197,94,.2);"><i class="fas fa-store"></i> Published</span>
-          </div>
-          <div class="proj-name">Payslip Portal</div>
-          <div class="proj-desc">Odoo 18 employee self-service portal for payslips — secure access to monthly salary slips, deductions, and earnings breakdown without needing backend access.</div>
-          <div class="proj-tags"><span class="tag">Odoo 18</span><span class="tag">Python</span><span class="tag">Portal</span><span class="tag">Payroll</span></div>
-          <a href="https://apps.odoo.com/apps/modules/18.0/payslip_portal" class="proj-link" target="_blank">View on Odoo Apps <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(16,185,129,.12);color:#10b981;"><i class="fas fa-exchange-alt"></i></div>
-            <span class="proj-badge" style="background:rgba(34,197,94,.1);color:#22c55e;border-color:rgba(34,197,94,.2);"><i class="fas fa-store"></i> Published</span>
-          </div>
-          <div class="proj-name">Tamm Integrations</div>
-          <div class="proj-desc">Odoo 18 integration module bridging the Tamm platform with ERP workflows — connecting business services via secure API communication and automated data sync.</div>
-          <div class="proj-tags"><span class="tag">Odoo 18</span><span class="tag">API</span><span class="tag">Integration</span><span class="tag">Python</span></div>
-          <a href="https://apps.odoo.com/apps/modules/18.0/Tamm_Integrations" class="proj-link" target="_blank">View on Odoo Apps <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(99,102,241,.12);color:#6366f1;"><i class="fas fa-school"></i></div>
-          </div>
-          <div class="proj-name">Odoo School Management</div>
-          <div class="proj-desc">Comprehensive school ERP built on Odoo — student registration, attendance tracking, grading modules, and stakeholder portals.</div>
-          <div class="proj-tags"><span class="tag">Odoo</span><span class="tag">Python</span><span class="tag">XML</span><span class="tag">PostgreSQL</span></div>
-          <a href="https://github.com/MahmoudsNasr77/odoo-school-management" class="proj-link" target="_blank">View on GitHub <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(168,85,247,.12);color:#a855f7;"><i class="fas fa-store"></i></div>
-            <span class="proj-badge"><i class="fas fa-lock"></i> Private</span>
-          </div>
-          <div class="proj-name">Ceramic Palace — eCommerce</div>
-          <div class="proj-desc">Full-featured e-commerce site with Django and PostgreSQL. Optimized queries, product catalog, cart, and checkout — delivered on deadline.</div>
-          <div class="proj-tags"><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">DRF</span></div>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(16,185,129,.12);color:#10b981;"><i class="fas fa-leaf"></i></div>
-          </div>
-          <div class="proj-name">Smart Farming System</div>
-          <div class="proj-desc">Intelligent IoT-connected farming system built with Django. Sensor data ingestion, real-time analytics, and RESTful APIs for device communication.</div>
-          <div class="proj-tags"><span class="tag">Django</span><span class="tag">REST API</span><span class="tag">IoT</span><span class="tag">Python</span></div>
-          <a href="https://github.com/MahmoudsNasr77/Smart-Farming--" class="proj-link" target="_blank">View on GitHub <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(245,158,11,.12);color:#f59e0b;"><i class="fas fa-boxes"></i></div>
-            <span class="proj-badge"><i class="fas fa-lock"></i> Private</span>
-          </div>
-          <div class="proj-name">FCI ZU Inventory System</div>
-          <div class="proj-desc">RESTful inventory API with Django REST Framework for FCI Zagazig University — backend powering all frontend operations with full auth support.</div>
-          <div class="proj-tags"><span class="tag">DRF</span><span class="tag">JWT</span><span class="tag">Django</span></div>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-header">
-            <div class="proj-icon" style="background:rgba(59,130,246,.12);color:#3b82f6;"><i class="fas fa-briefcase"></i></div>
-          </div>
-          <div class="proj-name">Job Board Platform</div>
-          <div class="proj-desc">Feature-complete job board with Django — employer profiles, job postings, applicant tracking, and user authentication.</div>
-          <div class="proj-tags"><span class="tag">Django</span><span class="tag">Python</span><span class="tag">PostgreSQL</span></div>
-          <a href="https://github.com/MahmoudsNasr77/Django-Job-Website" class="proj-link" target="_blank">View on GitHub <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-      </div>
+<!-- Education -->
+<section id="education" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="نموذج · التعليم">Form · Education</div>
+      <h2 class="page-title" data-ar="التعليم">Education</h2>
+      <p class="page-sub" data-ar="أساس أكاديمي في علوم الحاسب من جامعة الزقازيق.">Academic foundation in computer science from Zagazig University.</p>
     </div>
-  </section>
 
-  <!-- Education -->
-  <section id="education" class="section-pad">
-    <div class="container">
-      <div class="label">Background</div>
-      <h2 class="section-heading reveal">Education</h2>
-      <p class="section-sub reveal">Strong academic foundation in computer science from Zagazig University.</p>
-      <div class="edu-card reveal">
-        <div class="edu-badge">🎓</div>
-        <div>
-          <div class="edu-degree">Bachelor of Computer Science</div>
-          <div class="edu-uni">
-            <i class="fas fa-university"></i> Zagazig University ·
-            <i class="fas fa-clock"></i> 2019 – 2023
-          </div>
-          <div class="edu-pills">
-            <div class="edu-pill"><i class="fas fa-star"></i> Graduated High Excellent</div>
-            <div class="edu-pill"><i class="fas fa-chart-line"></i> GPA: 3.74 / 4.00</div>
-            <div class="edu-pill"><i class="fas fa-code"></i> Software Engineering</div>
-            <div class="edu-pill"><i class="fas fa-server"></i> Backend Development</div>
-            <div class="edu-pill"><i class="fas fa-brain"></i> Algorithms & AI</div>
-          </div>
-          <div class="edu-activities">
-            <div class="edu-pill"><i class="fas fa-users"></i> GDC Al Azhar Member</div>
-            <div class="edu-pill"><i class="fas fa-laptop-code"></i> Tech Workshops & Events</div>
-            <div class="edu-pill"><i class="fas fa-project-diagram"></i> Team Projects & Collaboration</div>
-          </div>
+    <div class="edu-sheet reveal">
+      <div class="edu-badge"><i class="fas fa-graduation-cap"></i></div>
+      <div>
+        <div class="edu-degree" data-ar="بكالوريوس علوم الحاسب من كلية حاسبات ومعلومات جامعة الزقازيق">Bachelor of Computer Science</div>
+        <div class="edu-uni mono"><i class="fas fa-university"></i> <span data-ar="جامعة الزقازيق">Zagazig University</span> &nbsp;·&nbsp; <i class="fas fa-clock"></i> 2019 – 2023</div>
+        <div class="pill-row">
+          <div class="pill"><i class="fas fa-star"></i> <span data-ar="تقدير امتياز مع مرتبة الشرف">Graduated High Excellent</span></div>
+          <div class="pill"><i class="fas fa-chart-line"></i> <span data-ar="المعدل: 3.74 / 4.00">GPA: 3.74 / 4.00</span></div>
+          <div class="pill"><i class="fas fa-code"></i> <span data-ar="هندسة البرمجيات">Software Engineering</span></div>
+          <div class="pill"><i class="fas fa-server"></i> <span data-ar="تطوير الواجهة الخلفية">Backend Development</span></div>
+          <div class="pill"><i class="fas fa-brain"></i> <span data-ar="الخوارزميات والذكاء الاصطناعي">Algorithms & AI</span></div>
+        </div>
+        <div class="pill-sep mono" data-ar="الأنشطة">Activities</div>
+        <div class="pill-row">
+          <div class="pill"><i class="fas fa-users"></i> <span data-ar="عضو GDC الأزهر">GDC Al Azhar Member</span></div>
+          <div class="pill"><i class="fas fa-laptop-code"></i> <span data-ar="ورش عمل وفعاليات تقنية">Tech Workshops & Events</span></div>
+          <div class="pill"><i class="fas fa-diagram-project"></i> <span data-ar="مشاريع جماعية وتعاون">Team Projects & Collaboration</span></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Tech Stack -->
-  <section id="tech" class="section-pad" style="background:linear-gradient(180deg,transparent,rgba(0,229,255,.03),transparent);">
-    <div class="container">
-      <div class="label">Toolkit</div>
-      <h2 class="section-heading reveal">Tech Stack</h2>
-      <p class="section-sub reveal">The technologies I use to build robust, scalable backend systems.</p>
-      <div class="tech-grid">
-        <div class="tech-item reveal"><i class="fas fa-cogs" style="color:#814C94;"></i><div><div class="tech-item-name">Odoo</div><div class="tech-item-sub">ORM · QWeb · OWL</div></div></div>
-        <div class="tech-item reveal"><i class="fab fa-python" style="color:#FFD43B;"></i><div><div class="tech-item-name">Python</div><div class="tech-item-sub">Backend & Scripts</div></div></div>
-        <div class="tech-item reveal"><i class="fab fa-python" style="color:#2E8B57;"></i><div><div class="tech-item-name">Django & DRF</div><div class="tech-item-sub">REST APIs</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-database" style="color:#336791;"></i><div><div class="tech-item-name">PostgreSQL</div><div class="tech-item-sub">Queries & Indexing</div></div></div>
-        <div class="tech-item reveal"><i class="fab fa-js" style="color:#F7DF1E;"></i><div><div class="tech-item-name">JavaScript</div><div class="tech-item-sub">Dynamic UI</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-code" style="color:#FF8C00;"></i><div><div class="tech-item-name">XML</div><div class="tech-item-sub">Odoo Views</div></div></div>
-        <div class="tech-item reveal"><i class="fab fa-html5" style="color:#E34F26;"></i><div><div class="tech-item-name">HTML & CSS</div><div class="tech-item-sub">Responsive UI</div></div></div>
-        <div class="tech-item reveal"><i class="fab fa-git-alt" style="color:#F05032;"></i><div><div class="tech-item-name">Git & GitHub</div><div class="tech-item-sub">Version Control</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-flask" style="color:#f97316;"></i><div><div class="tech-item-name">Postman</div><div class="tech-item-sub">API Testing</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-kiwi-bird" style="color:#38bdf8;"></i><div><div class="tech-item-name">OWL Framework</div><div class="tech-item-sub">Odoo Web Library</div></div></div>
-        <div class="tech-item reveal"><i class="fab fa-bootstrap" style="color:#7952B3;"></i><div><div class="tech-item-name">Bootstrap</div><div class="tech-item-sub">UI Components</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-brain" style="color:#4CAF50;"></i><div><div class="tech-item-name">ML / Scikit</div><div class="tech-item-sub">Data Processing</div></div></div>
-        <div class="tech-item reveal"><i class="fab fa-linux" style="color:#facc15;"></i><div><div class="tech-item-name">Linux</div><div class="tech-item-sub">Server & Setup</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-cloud" style="color:#00bcd4;"></i><div><div class="tech-item-name">Odoo.sh</div><div class="tech-item-sub">Cloud Deployment · CI/CD</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-server" style="color:#64748b;"></i><div><div class="tech-item-name">On-Premise Servers</div><div class="tech-item-sub">Deployment · Nginx · Docker</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-plug" style="color:#34d399;"></i><div><div class="tech-item-name">API Integrations</div><div class="tech-item-sub">JWT · REST</div></div></div>
-        <div class="tech-item reveal"><i class="fas fa-laptop-code" style="color:#93c5fd;"></i><div><div class="tech-item-name">VS Code / PyCharm</div><div class="tech-item-sub">Dev Workflow</div></div></div>
-      </div>
+<!-- Tech Stack -->
+<section id="tech" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="وسوم Many2many">Many2many Tags</div>
+      <h2 class="page-title" data-ar="التقنيات المستخدمة">Tech Stack</h2>
+      <p class="page-sub" data-ar="مجمّعة كما تجمّع أودو السجلات في عرض القائمة — حسب الفئة.">Grouped the way an Odoo list view groups records — by category.</p>
     </div>
-  </section>
 
-  <!-- Services -->
-  <section id="services" class="section-pad">
-    <div class="container">
-      <div class="label">What I Do</div>
-      <h2 class="section-heading reveal">Services</h2>
-      <p class="section-sub reveal">End-to-end Odoo development — from custom modules to full deployments.</p>
-      <div class="services-grid">
-        <div class="svc-card reveal">
-          <div class="svc-icon" style="background:rgba(99,102,241,.12);color:#6366f1;"><i class="fas fa-cube"></i></div>
-          <div class="svc-title">Custom Odoo Modules</div>
-          <div class="svc-desc">Building tailored Odoo modules covering models, views, security rules, QWeb reports, and API endpoints — aligned to your exact business workflows.</div>
+    <div class="reveal">
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="نواة أودو">Odoo Core</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fas fa-cogs" style="color:#814C94"></i> <span data-ar="Odoo ORM">Odoo ORM</span></div>
+          <div class="stack-tag"><i class="fas fa-kiwi-bird" style="color:#38bdf8"></i> <span data-ar="إطار OWL">OWL Framework</span></div>
+          <div class="stack-tag"><i class="fas fa-code" style="color:#FF8C00"></i> QWeb / XML Views</div>
+          <div class="stack-tag"><i class="fas fa-cloud" style="color:#00bcd4"></i> Odoo.sh · CI/CD</div>
         </div>
-        <div class="svc-card reveal">
-          <div class="svc-icon" style="background:rgba(16,185,129,.12);color:#10b981;"><i class="fas fa-plug"></i></div>
-          <div class="svc-title">API Integrations</div>
-          <div class="svc-desc">Connecting Odoo with external platforms — WhatsApp, payment gateways, Twilio, ERP systems, and custom third-party services.</div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="الخلفية وواجهات API">Backend & APIs</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fab fa-python" style="color:#FFD43B"></i> Python</div>
+          <div class="stack-tag"><i class="fab fa-python" style="color:#2E8B57"></i> Django & DRF</div>
+          <div class="stack-tag"><i class="fas fa-plug" style="color:#34d399"></i> JWT · REST APIs</div>
+          <div class="stack-tag"><i class="fas fa-database" style="color:#336791"></i> PostgreSQL</div>
         </div>
-        <div class="svc-card reveal">
-          <div class="svc-icon" style="background:rgba(168,85,247,.12);color:#a855f7;"><i class="fas fa-cloud-upload-alt"></i></div>
-          <div class="svc-title">Odoo Deployment</div>
-          <div class="svc-desc">Deploying on Odoo.sh and staging environments with performance tuning, instance optimization, and reliability best practices.</div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="الواجهة والأدوات">Frontend & Tooling</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fab fa-js" style="color:#F7DF1E"></i> JavaScript</div>
+          <div class="stack-tag"><i class="fab fa-html5" style="color:#E34F26"></i> HTML & CSS</div>
+          <div class="stack-tag"><i class="fab fa-bootstrap" style="color:#7952B3"></i> Bootstrap</div>
+          <div class="stack-tag"><i class="fas fa-flask" style="color:#f97316"></i> Postman</div>
         </div>
-        <div class="svc-card reveal">
-          <div class="svc-icon" style="background:rgba(245,158,11,.12);color:#f59e0b;"><i class="fas fa-shopping-cart"></i></div>
-          <div class="svc-title">Website & eCommerce</div>
-          <div class="svc-desc">Enhancing Odoo Website with custom pages, themes, shop improvements, and polished checkout UX that converts.</div>
-        </div>
-        <div class="svc-card reveal">
-          <div class="svc-icon" style="background:rgba(59,130,246,.12);color:#3b82f6;"><i class="fas fa-robot"></i></div>
-          <div class="svc-title">Automation & Workflows</div>
-          <div class="svc-desc">Automated server actions, cron jobs, approval chains, and smart buttons for seamless, hands-off business operations.</div>
-        </div>
-        <div class="svc-card reveal">
-          <div class="svc-icon" style="background:rgba(239,68,68,.12);color:#ef4444;"><i class="fas fa-database"></i></div>
-          <div class="svc-title">Database Optimization</div>
-          <div class="svc-desc">PostgreSQL performance tuning, strategic indexing, query optimization, and boosting Odoo backend speed dramatically.</div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="البنية والتشغيل">Infra & Ops</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fab fa-git-alt" style="color:#F05032"></i> Git & GitHub</div>
+          <div class="stack-tag"><i class="fab fa-linux" style="color:#facc15"></i> Linux</div>
+          <div class="stack-tag"><i class="fas fa-server" style="color:#64748b"></i> Nginx · Docker</div>
+          <div class="stack-tag"><i class="fas fa-brain" style="color:#4CAF50"></i> ML / Scikit</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="section-pad">
-    <div class="container">
-      <div class="cta-section reveal">
-        <div class="label" style="justify-content:center;">Let's Build Together</div>
-        <div class="cta-title">Have a project in mind?</div>
-        <div class="cta-sub">Let's discuss how I can help you build powerful Odoo solutions, automate workflows, or integrate your business systems.</div>
-        <div class="cta-buttons">
-          <a href="https://wa.me/201552404457?text=Hello%20Mahmoud,%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-          <a href="mailto:mahmoudsabrynasr@gmail.com" class="btn-ghost"><i class="fas fa-envelope"></i> Send an Email</a>
+<!-- Services -->
+<section id="services" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="مبدّل التطبيقات">App Switcher</div>
+      <h2 class="page-title" data-ar="الخدمات">Services</h2>
+      <p class="page-sub" data-ar="تطوير أودو من البداية للنهاية — من الوحدات المخصّصة حتى النشر الكامل.">End-to-end Odoo development — from custom modules to full deployments.</p>
+    </div>
+
+    <div class="apps-grid reveal">
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:var(--purple)"><i class="fas fa-cube"></i></div>
+        <div class="app-tile-title" data-ar="وحدات أودو مخصّصة">Custom Odoo Modules</div>
+        <div class="app-tile-desc" data-ar="نماذج، عروض، قواعد صلاحيات، تقارير QWeb ونقاط API مصمّمة حسب سير عملك.">Models, views, security rules, QWeb reports and API endpoints tailored to your workflow.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:var(--teal)"><i class="fas fa-plug"></i></div>
+        <div class="app-tile-title" data-ar="تكاملات API">API Integrations</div>
+        <div class="app-tile-desc" data-ar="ربط أودو بواتساب، بوابات الدفع، Twilio، وأنظمة ERP خارجية.">Connecting Odoo with WhatsApp, payment gateways, Twilio, and third-party ERPs.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:#a855f7"><i class="fas fa-cloud-upload-alt"></i></div>
+        <div class="app-tile-title" data-ar="نشر أودو">Odoo Deployment</div>
+        <div class="app-tile-desc" data-ar="بيئات Odoo.sh والاختبار مع ضبط الأداء وأفضل ممارسات الموثوقية.">Odoo.sh & staging environments with performance tuning and reliability best practices.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:var(--gold)"><i class="fas fa-shopping-cart"></i></div>
+        <div class="app-tile-title" data-ar="مواقع ومتاجر إلكترونية">Website & eCommerce</div>
+        <div class="app-tile-desc" data-ar="صفحات مخصّصة، قوالب، تحسينات المتجر، وتجربة دفع سلسة ترفع نسبة التحويل.">Custom pages, themes, shop improvements, polished checkout UX that converts.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:#3b82f6"><i class="fas fa-robot"></i></div>
+        <div class="app-tile-title" data-ar="الأتمتة وسير العمل">Automation & Workflows</div>
+        <div class="app-tile-desc" data-ar="إجراءات الخادم، مهام cron، سلاسل الموافقات، وأزرار ذكية لعمليات تلقائية.">Server actions, cron jobs, approval chains and smart buttons for hands-off operations.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:#ef4444"><i class="fas fa-database"></i></div>
+        <div class="app-tile-title" data-ar="تحسين قواعد البيانات">Database Optimization</div>
+        <div class="app-tile-desc" data-ar="ضبط PostgreSQL، فهرسة استراتيجية، وتحسين الاستعلامات لتسريع أنظمة أودو.">PostgreSQL tuning, strategic indexing, and query optimization for faster Odoo instances.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Send-message Chatter -->
+<section id="contact" class="page" style="padding-top:0;">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="ملاحظة · أرسل رسالة">Log note · Send message</div>
+      <h2 class="page-title" data-ar="راسلني">Message Me</h2>
+      <p class="page-sub" data-ar="اترك رسالة مثل رسالة سجل المناقشات في أودو — تصلني مباشرة في بريدي.">Drop a note like an Odoo chatter message — it lands straight in my inbox.</p>
+    </div>
+
+    <div class="msg-chatter reveal">
+      <div class="msg-chatter-head">
+        <i class="fas fa-comments"></i><b data-ar="سجل المناقشات">Chatter</b>
+        <span class="who" data-ar="الي : mahmoudsabrynasr@gmail.com">to: mahmoudsabrynasr@gmail.com</span>
+      </div>
+      <div class="msg-body">
+        <div class="msg-thread">
+          <div class="msg-bubble">
+            <div class="ava"><i class="fas fa-user-tie"></i></div>
+            <div class="body" data-ar="مرحباً 👋 اترك اسمك وبريدك ورسالتك بالأسفل — سأرد عليك عبر البريد قريباً.">Hi 👋 Leave your name, email and message below — I'll reply to you by email soon.</div>
+          </div>
         </div>
+
+        <form class="msg-form" id="msgForm">
+          <div class="msg-row">
+            <div class="msg-field">
+              <label for="mf-name" data-ar="اسمك">Your name</label>
+              <input type="text" id="mf-name" name="name" required autocomplete="name" placeholder="Jane Doe" data-ar-ph="مثال: أحمد محمد" />
+            </div>
+            <div class="msg-field">
+              <label for="mf-email" data-ar="بريدك الإلكتروني">Your email</label>
+              <input type="email" id="mf-email" name="email" required autocomplete="email" placeholder="jane@company.com" data-ar-ph="you@company.com" />
+            </div>
+          </div>
+          <div class="msg-field">
+            <label for="mf-msg" data-ar="الرسالة">Message</label>
+            <textarea id="mf-msg" name="message" rows="4" required placeholder="Tell me about your project…" data-ar-ph="أخبرني عن مشروعك…"></textarea>
+          </div>
+          <div class="msg-send-row">
+            <button type="submit" class="btn btn-primary" id="mf-btn"><i class="fas fa-paper-plane"></i> <span data-ar="إرسال الرسالة">Send message</span></button>
+            <span class="msg-status" id="mf-status"></span>
+          </div>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-copy">© 2026 Mahmoud Sabry Nasr. All rights reserved.</div>
-      <div class="visitor-pill"><i class="fas fa-eye" style="color:var(--accent)"></i> Visitors: <span class="count" id="visitor-count">—</span></div>
-      <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/MahmoudsNasr77" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://wa.me/201552404457" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      </div>
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-copy">© 2026 Mahmoud Sabry Nasr</div>
+    <div class="saved-pill"><i class="fas fa-check-circle"></i> <span data-ar="تم حفظ كل التغييرات">All changes saved</span></div>
+    <div class="visitor-pill"><i class="fas fa-eye"></i> <span data-ar="الزوّار:">Visitors:</span> <span class="count" id="visitor-count">—</span></div>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/MahmoudsNasr77" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/201552404457" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- Back to top -->
-  <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+<script>
+// ===== Language toggle (EN / AR + RTL) =====
+const langToggle = document.getElementById('langToggle');
+const langLabel = document.getElementById('langLabel');
+const langLabelMobile = document.getElementById('langLabelMobile');
+const i18nNodes = document.querySelectorAll('[data-ar]');
+const phNodes = document.querySelectorAll('[data-ar-ph]');
+// stash English originals once
+i18nNodes.forEach(n => n.dataset.en = n.innerHTML);
+phNodes.forEach(n => n.dataset.enPh = n.getAttribute('placeholder') || '');
 
-  <script>
-    // Cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
-      ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+function applyLang(lang){
+  const ar = lang === 'ar';
+  document.documentElement.lang = ar ? 'ar' : 'en';
+  document.documentElement.dir = ar ? 'rtl' : 'ltr';
+  i18nNodes.forEach(n => { n.innerHTML = ar ? n.dataset.ar : n.dataset.en; });
+  phNodes.forEach(n => n.setAttribute('placeholder', ar ? n.dataset.arPh : n.dataset.enPh));
+  // toggle label shows the OTHER language
+  const otherLabel = ar ? 'English' : 'العربية';
+  langLabel.textContent = otherLabel;
+  if (langLabelMobile) langLabelMobile.textContent = otherLabel;
+  if (window.__themeReady) renderThemeLabel();
+  try { localStorage.setItem('lang', lang); } catch(e){}
+}
+let current = 'en';
+try { current = localStorage.getItem('lang') || 'en'; } catch(e){}
+applyLang(current);
+function toggleLang(e){
+  if (e) e.preventDefault();
+  current = document.documentElement.dir === 'rtl' ? 'en' : 'ar';
+  applyLang(current);
+}
+langToggle.addEventListener('click', toggleLang);
+document.getElementById('langToggleMobile').addEventListener('click', (e) => {
+  toggleLang(e);
+  mobileMenu.classList.remove('open');
+});
+
+// ===== Dark mode =====
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+const themeIconMobile = document.getElementById('themeIconMobile');
+const themeLabelMobile = document.getElementById('themeLabelMobile');
+function renderThemeLabel(){
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const ar = document.documentElement.dir === 'rtl';
+  themeIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+  themeIconMobile.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+  themeLabelMobile.textContent = dark
+    ? (ar ? 'الوضع الفاتح' : 'Light mode')
+    : (ar ? 'الوضع الداكن' : 'Dark mode');
+}
+function applyTheme(theme){
+  if (theme === 'dark') document.documentElement.setAttribute('data-theme','dark');
+  else document.documentElement.removeAttribute('data-theme');
+  try { localStorage.setItem('theme', theme); } catch(e){}
+  renderThemeLabel();
+}
+window.__themeReady = true;
+let currentTheme = 'light';
+try { currentTheme = localStorage.getItem('theme') || 'light'; } catch(e){}
+applyTheme(currentTheme);
+function toggleTheme(e){
+  if (e) e.preventDefault();
+  currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(currentTheme);
+}
+themeToggle.addEventListener('click', toggleTheme);
+document.getElementById('themeToggleMobile').addEventListener('click', (e) => {
+  toggleTheme(e);
+  mobileMenu.classList.remove('open');
+});
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+document.querySelectorAll('.mnav').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Scrollspy for notebook tabs
+const tabLinks = document.querySelectorAll('.tab-link');
+const sections = [...tabLinks].map(l => document.querySelector(l.getAttribute('href')));
+function updateTabs(){
+  let idx = 0;
+  const y = window.scrollY + 140;
+  sections.forEach((s,i) => { if (s && s.offsetTop <= y) idx = i; });
+  tabLinks.forEach((l,i) => l.classList.toggle('active', i === idx));
+}
+window.addEventListener('scroll', updateTabs);
+updateTabs();
+
+// Visitor counter
+const BIN_ID = "692ef2ecae596e708f7ea663";
+const ACCESS_KEY = "$2a$10$fyovnGfoe0uPo.ciKue4vOUF3QeyLejPfADbFO/uvQUvofs9GU/Eq";
+async function updateVisitorCount() {
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, { headers: { "X-Access-Key": ACCESS_KEY } });
+    const data = await res.json(); let count = data.record.count + 1;
+    await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, { method: "PUT", headers: { "Content-Type": "application/json", "X-Access-Key": ACCESS_KEY }, body: JSON.stringify({ count }) });
+    let c = 0; const t = setInterval(() => { c += Math.ceil(count / 40); if (c >= count) { c = count; clearInterval(t); } document.getElementById('visitor-count').textContent = c; }, 40);
+  } catch (e) { document.getElementById('visitor-count').textContent = '—'; }
+}
+updateVisitorCount();
+
+// Border-highlight the Send button when Contact section is scrolled into view
+const contactSection = document.getElementById('contact');
+new IntersectionObserver((entries) => {
+  entries.forEach(e => contactSection.classList.toggle('in-view', e.isIntersecting));
+}, { threshold: 0.35 }).observe(contactSection);
+
+// Send-message chatter → Formspree (delivers to mahmoudsabrynasr@gmail.com)
+// SETUP: sign up at https://formspree.io with mahmoudsabrynasr@gmail.com,
+// create a form, then replace YOUR_FORM_ID below with the given id.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const msgForm = document.getElementById('msgForm');
+const msgStatus = document.getElementById('mf-status');
+const msgBtn = document.getElementById('mf-btn');
+const isAr = () => document.documentElement.dir === 'rtl';
+msgForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('mf-name').value.trim();
+  const email = document.getElementById('mf-email').value.trim();
+  const message = document.getElementById('mf-msg').value.trim();
+
+  // Fallback: if Formspree not configured yet, open mail client via mailto.
+  if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    window.location.href = `mailto:mahmoudsabrynasr@gmail.com?subject=${subject}&body=${body}`;
+    return;
+  }
+
+  msgBtn.disabled = true;
+  msgStatus.className = 'msg-status';
+  msgStatus.textContent = isAr() ? 'جارٍ الإرسال…' : 'Sending…';
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message, _subject: `Portfolio message from ${name}` }),
     });
-    document.querySelectorAll('a,button').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.style.transform = 'translate(-50%,-50%) scale(1.6)');
-      el.addEventListener('mouseleave', () => ring.style.transform = 'translate(-50%,-50%) scale(1)');
-    });
-
-    // Navbar scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-      document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
-    });
-
-    // ── Mobile Menu ──
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    function openMenu() {
-      hamburger.classList.add('open');
-      mobileMenu.classList.add('open');
-      hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+    if (res.ok) {
+      msgForm.reset();
+      msgStatus.className = 'msg-status ok';
+      msgStatus.textContent = isAr() ? '✓ تم الإرسال — سأرد عبر البريد قريباً.' : '✓ Sent — I\'ll reply by email soon.';
+    } else {
+      throw new Error('bad response');
     }
-
-    function closeMenu() {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.contains('open') ? closeMenu() : openMenu();
-    });
-
-    // Close on nav link click
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    // Close on outside click
-    mobileMenu.addEventListener('click', e => {
-      if (e.target === mobileMenu) closeMenu();
-    });
-
-    // Close on scroll (UX: user scrolled = intentional navigation)
-    let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', () => {
-      if (Math.abs(window.scrollY - lastScrollY) > 80) closeMenu();
-      lastScrollY = window.scrollY;
-    });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Visitor counter
-    const BIN_ID = "692ef2ecae596e708f7ea663";
-    const ACCESS_KEY = "$2a$10$fyovnGfoe0uPo.ciKue4vOUF3QeyLejPfADbFO/uvQUvofs9GU/Eq";
-    async function updateVisitorCount() {
-      try {
-        const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, { headers: { "X-Access-Key": ACCESS_KEY } });
-        const data = await res.json(); let count = data.record.count + 1;
-        await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, { method: "PUT", headers: { "Content-Type": "application/json", "X-Access-Key": ACCESS_KEY }, body: JSON.stringify({ count }) });
-        let c = 0; const t = setInterval(() => { c += Math.ceil(count / 40); if (c >= count) { c = count; clearInterval(t); } document.getElementById('visitor-count').textContent = c; }, 40);
-      } catch (e) { document.getElementById('visitor-count').textContent = '—'; }
-    }
-    updateVisitorCount();
-  </script>
+  } catch (err) {
+    msgStatus.className = 'msg-status err';
+    msgStatus.textContent = isAr() ? '✗ فشل الإرسال. راسلني مباشرة: mahmoudsabrynasr@gmail.com' : '✗ Failed. Email me directly: mahmoudsabrynasr@gmail.com';
+  } finally {
+    msgBtn.disabled = false;
+  }
+});
+</script>
 </body>
 </html>
