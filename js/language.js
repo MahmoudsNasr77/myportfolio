@@ -33,8 +33,8 @@
     try { localStorage.setItem('lang', lang); } catch (e) {}
   }
 
+  // Always start in English; Arabic is opt-in per visit via the toggle.
   let current = 'en';
-  try { current = localStorage.getItem('lang') || 'en'; } catch (e) {}
   applyLang(current);
 
   function toggleLang(e) {
