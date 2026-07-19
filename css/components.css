@@ -324,6 +324,19 @@ html[data-theme="dark"] .saved-pill{color:#5CE0A0;}
   font-size:14px;padding:4px 6px;line-height:1;
 }
 .lang-toast .close:hover{color:var(--ink);}
+@media (max-width:640px){
+  .lang-toast{
+    top:auto;bottom:16px;left:16px;right:16px;
+    transform:translateY(16px);
+    flex-wrap:wrap;justify-content:center;text-align:center;
+    max-width:none;border-radius:16px;padding:12px 14px;font-size:.78rem;
+  }
+  .lang-toast.show{transform:translateY(0);}
+  .lang-toast span{flex:1 1 100%;order:2;}
+  .lang-toast i.globe{order:1;}
+  .lang-toast .switch{order:3;}
+  .lang-toast .close{order:4;}
+}
 
 /* ===== Back to top ===== */
 .back-to-top{
