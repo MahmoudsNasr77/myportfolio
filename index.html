@@ -1,1047 +1,517 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mahmoud Sabry Nasr - Portfolio</title>
-  <meta property="og:image" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
-  <meta property="og:url" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
-  <meta name="twitter:image" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary-color: #6366f1;
-      --secondary-color: #a855f7;
-      --accent-color: #10b981;
-      --dark-bg: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.5);
-      --text-primary: #f1f5f9;
-      --text-secondary: #cbd5e1;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--dark-bg);
-      color: var(--text-primary);
-      overflow-x: hidden;
-    }
-
-    /* Animated Background */
-    .bg-gradient {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      opacity: 0.1;
-      z-index: -1;
-      animation: gradientShift 15s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { opacity: 0.1; }
-      50% { opacity: 0.15; }
-    }
-
-    /* Navbar */
-    .navbar {
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-    }
-
-    .navbar-brand {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-link {
-      color: var(--text-secondary) !important;
-      font-weight: 500;
-      margin: 0 0.5rem;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--primary-color);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    .nav-link:hover {
-      color: var(--primary-color) !important;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* Header */
-    header {
-      padding: 120px 0 80px;
-      text-align: center;
-    }
-
-    .profile-container {
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 2rem;
-      position: relative;
-    }
-
-    .profile-img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary-color);
-      box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .header-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #fff, var(--text-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .header-subtitle {
-      font-size: 1.5rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .contact-info {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin: 0 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .contact-info:hover {
-      color: var(--primary-color);
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .social-links a {
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(99, 102, 241, 0.1);
-      border-radius: 50%;
-      color: var(--primary-color);
-      font-size: 1.25rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .social-links a:hover {
-      background: var(--primary-color);
-      color: white;
-      transform: translateY(-5px);
-    }
-
-    .btn-primary-custom {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      padding: 12px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      transition: all 0.3s ease;
-      border: none;
-    }
-
-    .btn-primary-custom:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-      color: white;
-    }
-
-    /* Sections */
-    .section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      border-radius: 2px;
-    }
-
-    .glass-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 20px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary-color);
-      box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
-    }
-
-    .experience-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 20px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .experience-card:hover {
-      border-color: var(--primary-color);
-      box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
-    }
-
-    .project-card {
-      position: relative;
-    }
-
-    .private-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(239, 68, 68, 0.2);
-      color: #ef4444;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .btn-outline-custom {
-      border: 2px solid var(--primary-color);
-      color: var(--primary-color);
-      padding: 10px 24px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      transition: all 0.3s ease;
-      background: transparent;
-    }
-
-    .btn-outline-custom:hover {
-      background: var(--primary-color);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* Skills */
-    .skill-item {
-      margin-bottom: 2rem;
-    }
-
-    .progress-custom {
-      height: 10px;
-      background: rgba(99, 102, 241, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .progress-bar-custom {
-      height: 100%;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      border-radius: 10px;
-      transition: width 1s ease;
-    }
-
-    /* Tech Stack */
-    .tech-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-
-    .tech-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary-color);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-    }
-
-    .tech-card i {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .tech-card h5 {
-      margin: 0;
-      font-weight: 600;
-    }
-
-    /* Visitor Counter */
-    .visitor-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgba(99, 102, 241, 0.1);
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      border: 1px solid rgba(99, 102, 241, 0.3);
-    }
-
-    .visitor-box i {
-      color: var(--primary-color);
-      font-size: 1.25rem;
-    }
-
-    .visitor-box .label {
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    .visitor-box .count {
-      color: var(--primary-color);
-      font-weight: 700;
-      font-size: 1.25rem;
-      min-width: 50px;
-      text-align: center;
-    }
-
-    /* Footer */
-    footer {
-      background: rgba(15, 23, 42, 0.95);
-      padding: 2rem 0;
-      text-align: center;
-      border-top: 1px solid rgba(99, 102, 241, 0.1);
-    }
-
-    /* Back to Top */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 1.25rem;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-title {
-        font-size: 2.5rem;
-      }
-
-      .header-subtitle {
-        font-size: 1.2rem;
-      }
-
-      .contact-info {
-        display: block;
-        margin: 0.5rem 0;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Animated Background -->
-  <div class="bg-gradient"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Mahmoud Nasr</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#about">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tech-stack">Tech Stack</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Header -->
-  <header>
-    <div class="container text-center">
-      <div class="profile-container">
-        <img src="mahmoud.png" alt="Mahmoud Sabry Nasr" class="profile-img" />
-      </div>
-      <h1 class="header-title">Mahmoud Sabry Nasr</h1>
-      <p class="header-subtitle">Backend Developer | <span class="gradient-text">Odoo Developer</span></p>
-      
-      <div class="mb-4">
-        <a href="mailto:mahmoudsabrynasr@gmail.com" class="contact-info">
-          <i class="fas fa-envelope"></i> mahmoudsabrynasr@gmail.com
-        </a>
-        <a href="tel:+201552404457" class="contact-info">
-          <i class="fas fa-phone"></i> +20 1552404457
-        </a>
-      </div>
-
-      <div class="social-links mb-4">
-        <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/MahmoudsNasr77" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://wa.me/201552404457" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      </div>
-
-      <a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" class="btn btn-primary-custom" target="_blank">
-        <i class="fas fa-download me-2"></i>Download CV
-      </a>
-    </div>
-  </header>
-
-  <!-- Experience Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      
-      <div class="experience-card">
-        <h5><i class="fas fa-briefcase me-2" style="color: #6366f1;"></i>Odoo Developer – iHR (International Human Resources) Company</h5>
-        <p class="text-muted"><i class="fas fa-calendar-alt me-2"></i>Sep 2025 – Present | <i class="fas fa-map-marker-alt me-2"></i>Hybrid, Egypt</p>
-        <ul>
-          <li>Developed and customized enterprise modules for business process automation in human resources</li>
-          <li>Built secure REST APIs and user portals with role-based authentication</li>
-          <li>Integrated third-party services and automated workflow systems</li>
-        </ul>
-      </div>
-
-      <div class="experience-card">
-        <h5><i class="fas fa-briefcase me-2" style="color: #a855f7;"></i>Odoo Developer – Modern Technology Company</h5>
-        <p class="text-muted"><i class="fas fa-calendar-alt me-2"></i>Jul 2025 – Sep 2025 | <i class="fas fa-map-marker-alt me-2"></i>Remote, Iraq</p>
-        <ul>
-          <li>Customized business workflows in Sales and Purchase modules to match client operations</li>
-          <li>Developed advanced reporting and dashboard features tailored to business KPIs</li>
-          <li>Collaborated remotely with cross-border teams to deliver scalable ERP solutions</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="glass-card project-card d-flex flex-column">
-            <h5><i class="fas fa-school me-2" style="color: #6366f1;"></i>Odoo School Management</h5>
-            <ul>
-              <li>Comprehensive school management system built with Odoo</li>
-              <li>Student registration, attendance, and grading modules</li>
-              <li>User-friendly interfaces for all stakeholders</li>
-            </ul>
-            <a href="https://github.com/MahmoudsNasr77/odoo-school-management" class="btn btn-outline-custom mt-auto" target="_blank">
-              <i class="fab fa-github me-2"></i>View Project
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="glass-card project-card d-flex flex-column">
-            <span class="private-badge"><i class="fas fa-lock"></i> Private</span>
-            <h5><i class="fas fa-store me-2" style="color: #a855f7;"></i>Ceramic Palace Website</h5>
-            <ul>
-              <li>Full-featured e-commerce site with Django</li>
-              <li>PostgreSQL database with optimized queries</li>
-              <li>Delivered high-quality work within deadline</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="glass-card project-card d-flex flex-column">
-            <h5><i class="fas fa-leaf me-2" style="color: #10b981;"></i>Smart Farming System</h5>
-            <ul>
-              <li>Intelligent farming system with Django</li>
-              <li>Sensor data integration and analytics</li>
-              <li>RESTful APIs for IoT devices</li>
-            </ul>
-            <a href="https://github.com/MahmoudsNasr77/Smart-Farming--" class="btn btn-outline-custom mt-auto" target="_blank">
-              <i class="fab fa-github me-2"></i>View Project
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="glass-card project-card d-flex flex-column">
-            <span class="private-badge"><i class="fas fa-lock"></i> Private</span>
-            <h5><i class="fas fa-boxes me-2" style="color: #f59e0b;"></i>FCI ZU Inventory</h5>
-            <ul>
-              <li>RESTful APIs using Django REST Framework</li>
-              <li>Backend support for frontend operations</li>
-              <li>Full functionality delivered on time</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="glass-card project-card d-flex flex-column">
-            <h5><i class="fas fa-briefcase me-2" style="color: #3b82f6;"></i>Job Board Platform</h5>
-            <ul>
-              <li>Job board platform with Django</li>
-              <li>Complete backend logic and database</li>
-              <li>User authentication and job posting</li>
-            </ul>
-            <a href="https://github.com/MahmoudsNasr77/Django-Job-Website" class="btn btn-outline-custom mt-auto" target="_blank">
-              <i class="fab fa-github me-2"></i>View Project
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="glass-card project-card d-flex flex-column">
-            <h5><i class="fas fa-shopping-cart me-2" style="color: #ef4444;"></i>Online Store API</h5>
-            <ul>
-              <li>E-commerce API with Django REST Framework</li>
-              <li>Product management and order handling</li>
-              <li>Secure authentication system</li>
-            </ul>
-            <a href="https://github.com/MahmoudsNasr77/Store-Website" class="btn btn-outline-custom mt-auto" target="_blank">
-              <i class="fab fa-github me-2"></i>View Project
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="section">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="glass-card">
-        <div class="d-flex align-items-center mb-3">
-          <i class="fas fa-graduation-cap fa-3x me-3" style="color: #6366f1;"></i>
-          <div>
-            <h5>Bachelor of Computer Science</h5>
-            <p class="text-light mb-0">Zagazig University | 2019 – 2023</p>
-          </div>
-        </div>
-        <ul>
-          <li><strong>Graduated with High Excellent grade</strong></li>
-          <li>GPA: 3.74 / 4.00</li>
-          <li>Focused on software engineering, algorithms, backend development, and data analysis</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title">Skills & Expertise</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-cogs me-2" style="color: #814C94;"></i>Odoo Framework</h5>
-              <span class="gradient-text fw-bold">85%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 85%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fab fa-python me-2" style="color: #2E8B57;"></i>Django Framework</h5>
-              <span class="gradient-text fw-bold">90%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 90%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fab fa-python me-2" style="color: #FFD43B;"></i>Python</h5>
-              <span class="gradient-text fw-bold">95%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 95%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fab fa-java me-2" style="color: #f89820;"></i>Java</h5>
-              <span class="gradient-text fw-bold">70%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 70%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-database me-2" style="color: #336791;"></i>SQL & PostgreSQL</h5>
-              <span class="gradient-text fw-bold">85%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 85%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fab fa-html5 me-2" style="color: #E34F26;"></i>HTML, CSS, JavaScript</h5>
-              <span class="gradient-text fw-bold">98%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 98%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-network-wired me-2" style="color: #00CED1;"></i>RESTful API</h5>
-              <span class="gradient-text fw-bold">85%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 85%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-project-diagram me-2" style="color: #6366f1;"></i>OOP</h5>
-              <span class="gradient-text fw-bold">98%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 98%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-sitemap me-2" style="color: #a855f7;"></i>Data Structures & Algorithms</h5>
-              <span class="gradient-text fw-bold">85%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 85%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-brain me-2" style="color: #4CAF50;"></i>Machine Learning</h5>
-              <span class="gradient-text fw-bold">70%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 70%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-chart-line me-2" style="color: #3b82f6;"></i>Data Analysis</h5>
-              <span class="gradient-text fw-bold">75%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 75%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="skill-item">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5><i class="fas fa-code me-2" style="color: #FF8C00;"></i>XML</h5>
-              <span class="gradient-text fw-bold">90%</span>
-            </div>
-            <div class="progress-custom">
-              <div class="progress-bar-custom" style="width: 90%"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Stack Section -->
-  <section id="tech-stack" class="section">
-    <div class="container">
-      <h2 class="section-title">Tech Stack</h2>
-      <div class="row g-4">
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fas fa-cogs" style="color: #814C94;"></i>
-            <h5>Odoo</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fab fa-python" style="color: #2E8B57;"></i>
-            <h5>Django</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fas fa-network-wired" style="color: #00CED1;"></i>
-            <h5>DRF</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fas fa-database" style="color: #336791;"></i>
-            <h5>PostgreSQL</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fab fa-python" style="color: #FFD43B;"></i>
-            <h5>Python</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fab fa-html5" style="color: #E34F26;"></i>
-            <h5>HTML</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
-            <h5>CSS</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fab fa-js" style="color: #F7DF1E;"></i>
-            <h5>JavaScript</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fas fa-code" style="color: #FF8C00;"></i>
-            <h5>XML</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fas fa-brain" style="color: #4CAF50;"></i>
-            <h5>Scikit-learn</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fab fa-git-alt" style="color: #F05032;"></i>
-            <h5>Git</h5>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="tech-card">
-            <i class="fab fa-bootstrap" style="color: #7952B3;"></i>
-            <h5>Bootstrap</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="visitor-box mb-3">
-        <i class="fas fa-eye"></i>
-        <span class="label">Total Visitors:</span>
-        <span id="visitor-count" class="count">0</span>
-      </div>
-
-      <p class="mb-3">&copy; 2026 Mahmoud Sabry Nasr. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-const BIN_ID = "692ef2ecae596e708f7ea663";  
-const ACCESS_KEY = "$2a$10$fyovnGfoe0uPo.ciKue4vOUF3QeyLejPfADbFO/uvQUvofs9GU/Eq"; 
-
-async function updateVisitorCount() {
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Mahmoud Sabry Nasr — Odoo & Backend Developer. Enterprise Odoo modules, secure REST APIs, and scalable backend systems." />
+<title data-ar="محمود صبري نصر — مطوّر أودو والواجهة الخلفية">Mahmoud Sabry Nasr — Odoo & Backend Developer</title>
+<meta property="og:image" content="https://mahmoudsnasr77.github.io/myportfolio/mahmoud.png" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23714B67'/%3E%3Ctext x='50%25' y='52%25' text-anchor='middle' dominant-baseline='central' font-family='Inter,Arial,sans-serif' font-size='24' font-weight='800' fill='%23fff'%3EMsN%3C/text%3E%3C/svg%3E" />
+
+<!-- Preconnect + font preload for faster first paint -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- Stylesheets (modular) -->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/animations.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+
+<!-- Set theme before paint to avoid flash -->
+<script>
   try {
-    // 1) Read current count
-    const getRes = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
-      headers: {
-        "X-Access-Key": ACCESS_KEY
-      }
-    });
-
-    const getData = await getRes.json();
-    let count = getData.record.count;
-
-    // 2) Increment
-    count++;
-
-    // 3) Update bin
-    await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Access-Key": ACCESS_KEY
-      },
-      body: JSON.stringify({ count })
-    });
-
-    // 4) Show counter
-    animateCounter(count);
-
-  } catch (error) {
-    console.error("Visitor counter error:", error);
-  }
-}
-
-function animateCounter(targetCount) {
-  const display = document.getElementById("visitor-count");
-  let current = 0;
-  const step = Math.ceil(targetCount / 40);
-
-  const timer = setInterval(() => {
-    current += step;
-    if (current >= targetCount) {
-      current = targetCount;
-      clearInterval(timer);
-    }
-    display.textContent = current;
-  }, 40);
-}
-
-// Run when page loads
-updateVisitorCount();
+    var t = localStorage.getItem('theme');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
 </script>
+</head>
+<body>
 
-  <script>
-    // Typing Animation
-    const typedName = document.getElementById('typedName');
-    const name = 'Mahmoud Sabry Nasr';
-    let i = 0;
+<!-- Scroll progress indicator -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    function typeWriter() {
-      if (i < name.length) {
-        typedName.textContent += name.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      }
-    }
+<!-- ===== App bar ===== -->
+<header class="appbar">
+  <div class="appbar-inner">
+    <div class="appgrid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><b data-ar="من أنا">Portfolio</b><span class="sep">/</span><span data-ar="محمود صبري نصر">Mahmoud Sabry Nasr</span></nav>
+    <div class="appbar-right">
+      <div class="status-chip"><span class="dot"></span> <span data-ar="متاح">Available</span></div>
+      <button class="lang-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language"><i class="fas fa-language"></i> <span id="langLabel">العربية</span></button>
+      <div class="avatar-mini"><img src="images/mahmoud.png" alt="Mahmoud Sabry Nasr" width="26" height="26" onerror="this.parentElement.style.background='rgba(255,255,255,.2)'"/></div>
+      <button class="appbar-hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
 
-    // Start typing animation when page loads
-    window.addEventListener('load', typeWriter);
+<!-- ===== Mobile drawer ===== -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <ul>
+    <li><a href="#experience" class="mnav" data-ar="الخبرة">Experience</a></li>
+    <li><a href="#projects" class="mnav" data-ar="المشاريع">Projects</a></li>
+    <li><a href="#education" class="mnav" data-ar="التعليم">Education</a></li>
+    <li><a href="#tech" class="mnav" data-ar="التقنيات">Tech Stack</a></li>
+    <li><a href="#services" class="mnav" data-ar="الخدمات">Services</a></li>
+    <li><a href="#contact" class="mnav" data-ar="تواصل معي">Contact</a></li>
+    <li><a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" target="_blank" rel="noopener" class="mnav" data-ar="تحميل السيرة الذاتية ↓">Download CV ↓</a></li>
+    <li><a href="#" id="themeToggleMobile"><i class="fas fa-moon" id="themeIconMobile"></i> <span id="themeLabelMobile">Dark mode</span></a></li>
+    <li><a href="#" id="langToggleMobile"><i class="fas fa-language"></i> <span id="langLabelMobile">العربية</span></a></li>
+  </ul>
+</nav>
 
-    // Back to Top Button
-    const backToTopBtn = document.getElementById('backToTop');
+<!-- ===== Hero / Record ===== -->
+<section class="record">
+  <div class="container">
+    <div class="breadcrumb-lg mono">
+      <span>res.developer</span><span class="sep">/</span><span>odoo</span><span class="sep">/</span><span class="current">mahmoud_sabry_nasr</span>
+    </div>
 
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    });
+    <div class="record-sheet reveal">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="record-head">
+        <div class="record-title-wrap">
+          <div class="record-eyebrow"><i class="fas fa-database"></i> <span data-ar="مطوّر واجهة خلفية · أخصائي أنظمة أودو ERP">Backend Developer · Odoo ERP Specialist</span></div>
+          <h1 class="record-title" data-ar="محمود صبري نصر">Mahmoud Sabry Nasr</h1>
+          <p class="record-typed mono"><span id="typed"></span><span class="type-caret" aria-hidden="true"></span></p>
+          <p class="record-role" data-ar='بناء <strong>وحدات أودو</strong> للمؤسسات، و<strong>واجهات REST API</strong> آمنة، وأنظمة خلفية قابلة للتوسّع. مقيم في <strong>مصر</strong>، وأعمل مع عملاء في السعودية ومصر.'>Building enterprise <strong>Odoo modules</strong>, secure <strong>REST APIs</strong>, and scalable backend systems. Based in <strong>Egypt</strong>, working with clients across Saudi Arabia And Egypt.</p>
 
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
+          <div class="record-actions">
+            <a href="https://drive.google.com/file/d/151XHM_5RkEIY3HNT_ZFqyAG5vs1RfqDY/view?usp=drive_link" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-download"></i> <span data-ar="تحميل السيرة الذاتية">Download CV</span></a>
+            <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> <span data-ar="تواصل">Contact</span></a>
+          </div>
 
-    // Smooth Scrolling for Navigation Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/MahmoudsNasr77" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/201552404457" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:mahmoudsabrynasr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
 
-    // Animate Progress Bars on Scroll
-    const progressBars = document.querySelectorAll('.progress-bar-custom');
-    const observerOptions = {
-      threshold: 0.5,
-      rootMargin: '0px 0px -100px 0px'
-    };
+        <!-- Profile photo — the visual focus -->
+        <div class="hero-photo">
+          <div class="photo-orbit" aria-hidden="true"></div>
+          <div class="photo-ring">
+            <img src="images/mahmoud.png" alt="Portrait of Mahmoud Sabry Nasr" width="300" height="300" loading="eager" fetchpriority="high" onerror="this.style.opacity=0" />
+          </div>
+          <span class="photo-badge"><span class="dot"></span> <span data-ar="متاح للعمل الجزئي والحر">Open to part-time & freelance</span></span>
+        </div>
+      </div>
 
-    const progressObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.width = entry.target.getAttribute('style').match(/width:\s*(\d+%)/)[1];
-        }
-      });
-    }, observerOptions);
+      <!-- Stat cards -->
+      <div class="smart-buttons">
+        <div class="smart-btn"><i class="fas fa-calendar-check"></i><div><div class="sb-num" data-count="1" data-suffix="+">0</div><div class="sb-lbl" data-ar="سنوات خبرة">Years Exp</div></div></div>
+        <div class="smart-btn"><i class="fas fa-diagram-project"></i><div><div class="sb-num" data-count="9">0</div><div class="sb-lbl" data-ar="مشاريع">Projects</div></div></div>
+        <div class="smart-btn"><i class="fas fa-building"></i><div><div class="sb-num" data-count="2">0</div><div class="sb-lbl" data-ar="شركات">Companies</div></div></div>
+        <div class="smart-btn"><i class="fas fa-store"></i><div><div class="sb-num" data-count="4">0</div><div class="sb-lbl" data-ar="تطبيقات أودو">Odoo Apps</div></div></div>
+        <div class="smart-btn"><i class="fas fa-graduation-cap"></i><div><div class="sb-num" data-count="3.74" data-decimals="2">0</div><div class="sb-lbl" data-ar="المعدل / 4.0">GPA / 4.0</div></div></div>
+      </div>
 
-    progressBars.forEach(bar => {
-      const width = bar.style.width;
-      bar.style.width = '0%';
-      progressObserver.observe(bar);
-    });
+      <div class="tag-row">
+        <span class="rtag">hr.attendance</span>
+        <span class="rtag">rest.api</span>
+        <span class="rtag">jwt.auth</span>
+        <span class="rtag">l10n_ar</span>
+        <span class="rtag">postgresql</span>
+        <span class="rtag">odoo.sh</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== Notebook tabs ===== -->
+<div class="notebook-tabs">
+  <div class="tabs-inner">
+    <a href="#experience" class="tab-link mono" data-ar="الخبرة">Experience</a>
+    <a href="#projects" class="tab-link mono" data-ar="المشاريع">Projects</a>
+    <a href="#education" class="tab-link mono" data-ar="التعليم">Education</a>
+    <a href="#tech" class="tab-link mono" data-ar="التقنيات">Tech Stack</a>
+    <a href="#services" class="tab-link mono" data-ar="الخدمات">Services</a>
+    <a href="#contact" class="tab-link mono" data-ar="تواصل">Contact</a>
+  </div>
+</div>
 
+<!-- ===== Experience ===== -->
+<section id="experience" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="سجل النشاط">Activity Log</div>
+      <h2 class="page-title" data-ar="الخبرة العملية">Work Experience</h2>
+      <p class="page-sub" data-ar="وحدات أودو وواجهات API في بيئة الإنتاج، مسجّلة زمنياً — مثل سجل المحادثات (Chatter) في أودو.">Production Odoo modules and APIs, logged chronologically — like Odoo's own chatter thread.</p>
+    </div>
 
-    // Add hover effect to cards
-    const cards = document.querySelectorAll('.glass-card, .experience-card, .tech-card');
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-      });
-    });
-  </script>
+    <div class="chatter">
+      <div class="log-entry reveal">
+        <div class="log-avatar"><i class="fas fa-building"></i></div>
+        <div class="log-card">
+          <div class="log-top">
+            <div class="log-company" data-ar=" الشركة الدولية للموارد البشرية — iHR SAa ">iHR — International Human Resources SA</div>
+            <div class="log-date" data-ar="سبتمبر 2025 → حتى الآن">Sep 2025 → Present</div>
+          </div>
+          <div class="log-meta">
+            <span><i class="fas fa-briefcase"></i> <span data-ar="مطوّر أودو">Odoo Developer</span></span>
+            <span><i class="fas fa-map-marker-alt"></i> <span data-ar="هجين · مصر">Hybrid · Egypt</span></span>
+            <span><i class="fas fa-clock"></i> <span data-ar="دوام كامل">Full Time</span></span>
+          </div>
+          <ul class="log-points">
+            <li data-ar="تطوير وتخصيص وحدات الموارد البشرية للمؤسسات لأتمتة العمليات.">Developed and customized enterprise HR modules for business process automation</li>
+            <li data-ar="بناء واجهات REST API آمنة وبوابات مستخدمين مع مصادقة قائمة على الأدوار.">Built secure REST APIs and user portals with role-based authentication</li>
+            <li data-ar="دمج خدمات خارجية وأتمتة أنظمة سير العمل من البداية للنهاية.">Integrated third-party services and automated end-to-end workflow systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="log-entry reveal">
+        <div class="log-avatar"><i class="fas fa-globe"></i></div>
+        <div class="log-card">
+          <div class="log-top">
+            <div class="log-company" data-ar="شركة التقنية الحديثة">Modern Technology Company</div>
+            <div class="log-date" data-ar="يناير 2025 → سبتمبر 2025">Jan 2025 → Sep 2025</div>
+          </div>
+          <div class="log-meta">
+            <span><i class="fas fa-briefcase"></i> <span data-ar="مطوّر أودو">Odoo Developer</span></span>
+            <span><i class="fas fa-map-marker-alt"></i> <span data-ar="عن بُعد · العراق">Remote · Iraq</span></span>
+            <span><i class="fas fa-clock"></i> <span data-ar="دوام جزئي">Part Time</span></span>
+          </div>
+          <ul class="log-points">
+            <li data-ar="تخصيص وحدات المبيعات والمشتريات لتلائم عمليات العميل الفريدة.">Customized Sales & Purchase modules to match unique client operations</li>
+            <li data-ar="تطوير لوحات تقارير متقدمة مصممة حسب مؤشرات الأداء (KPIs).">Developed advanced reporting dashboards tailored to business KPIs</li>
+            <li data-ar="التعاون عن بُعد مع فرق عابرة للحدود لتقديم حلول ERP قابلة للتوسّع.">Collaborated remotely with cross-border teams to deliver scalable ERP solutions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Projects — Kanban ===== -->
+<section id="projects" class="page page-tint">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="عرض كانبان">Kanban View</div>
+      <h2 class="page-title" data-ar="مشاريع مختارة">Featured Projects</h2>
+      <p class="page-sub" data-ar="مجمّعة حسب المرحلة — تطبيقات أودو منشورة ومشاريع عملاء خاصة — بالإضافة إلى أنظمة خلفية بلغة بايثون وDjango.">Grouped by stage — published Odoo Apps and private client builds — plus backend systems in Python & Django.</p>
+    </div>
+
+    <div class="kanban">
+      <div class="reveal">
+        <div class="kanban-col-head"><span class="stage-dot" style="background:var(--purple)"></span> <span data-ar="منشور">Published</span> <span class="count">4</span></div>
+        <div class="kanban-col">
+
+          <article class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-chart-bar"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
+            </div>
+            <h3 class="kcard-name" data-ar="لوحة الحضور">Attendance Dashboard</h3>
+            <div class="kcard-desc" data-ar="لوحة حضور لأودو 18 — تتبّع الدخول/الخروج لحظياً، تحليلات قابلة للفلترة، ومؤشرات أداء مرئية لمديري الموارد البشرية.">Odoo 18 attendance dashboard — real-time check-in/out tracking, filterable analytics, visual KPIs for HR managers.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag">Python</span><span class="ktag">OWL</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/attendance_dashboard" class="kcard-link" target="_blank" rel="noopener"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-moon"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
+            </div>
+            <h3 class="kcard-name" data-ar="نظام المواريث الإسلامية">Islamic Inheritance System</h3>
+            <div class="kcard-desc" data-ar="يحسب المواريث الإسلامية وفق الشريعة — يوزّع أنصبة التركة على الورثة تلقائياً.">Calculates Islamic inheritance (Mirath) per Sharia law — auto-distributes estate shares among heirs.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag">Python</span><span class="ktag" data-ar="أحكام الفقه">Fiqh Rules</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/Inheritance" class="kcard-link" target="_blank" rel="noopener"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
+            </div>
+            <h3 class="kcard-name" data-ar="بوابة قسائم الرواتب">Payslip Portal</h3>
+            <div class="kcard-desc" data-ar="بوابة خدمة ذاتية للموظفين — وصول آمن لقسائم الرواتب الشهرية وتفاصيل الخصومات والاستحقاقات.">Employee self-service portal — secure access to monthly salary slips, deductions and earnings breakdown.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag" data-ar="بوابة">Portal</span><span class="ktag" data-ar="رواتب">Payroll</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/payslip_portal" class="kcard-link" target="_blank" rel="noopener"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-exchange-alt"></i></div>
+              <span class="kbadge pub" data-ar="تطبيقات أودو">Odoo Apps</span>
+            </div>
+            <h3 class="kcard-name" data-ar="تكاملات Tamm">Tamm Integrations</h3>
+            <div class="kcard-desc" data-ar="يربط منصة Tamm بسير عمل الـ ERP عبر اتصال API آمن ومزامنة بيانات تلقائية.">Bridges the Tamm platform with ERP workflows via secure API communication and automated data sync.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo 18</span><span class="ktag">API</span><span class="ktag" data-ar="تكامل">Integration</span></div>
+            <a href="https://apps.odoo.com/apps/modules/18.0/Tamm_Integrations" class="kcard-link" target="_blank" rel="noopener"><span data-ar="عرض على متجر أودو">View on Odoo Apps</span> <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="kanban-col-head"><span class="stage-dot" style="background:var(--gold)"></span> <span data-ar="أعمال أخرى">Other Builds</span> <span class="count">5</span></div>
+        <div class="kanban-col">
+
+          <article class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-school"></i></div>
+              <span class="kbadge git">GitHub</span>
+            </div>
+            <h3 class="kcard-name" data-ar="إدارة المدارس على أودو">Odoo School Management</h3>
+            <div class="kcard-desc" data-ar="نظام ERP للمدارس على أودو — تسجيل، تتبّع الحضور، وحدات الدرجات، وبوابات أصحاب المصلحة.">School ERP on Odoo — registration, attendance tracking, grading modules, stakeholder portals.</div>
+            <div class="kcard-tags"><span class="ktag">Odoo</span><span class="ktag">Python</span><span class="ktag">PostgreSQL</span></div>
+            <a href="https://github.com/MahmoudsNasr77/odoo-school-management" class="kcard-link" target="_blank" rel="noopener"><span data-ar="عرض على GitHub">View on GitHub</span> <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <article class="kcard private">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-store"></i></div>
+              <span class="kbadge priv" data-ar="خاص">Private</span>
+            </div>
+            <h3 class="kcard-name" data-ar="Ceramic Palace — متجر إلكتروني">Ceramic Palace — eCommerce</h3>
+            <div class="kcard-desc" data-ar="موقع تجارة إلكترونية متكامل بـ Django وPostgreSQL — استعلامات محسّنة، كتالوج، سلة، ودفع.">Full-featured e-commerce site with Django and PostgreSQL — optimized queries, catalog, cart, checkout.</div>
+            <div class="kcard-tags"><span class="ktag">Django</span><span class="ktag">PostgreSQL</span><span class="ktag">DRF</span></div>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-leaf"></i></div>
+              <div class="kcard-badges"><span class="kbadge grad"><i class="fas fa-graduation-cap"></i> <span data-ar="مشروع التخرج">Graduation Project</span></span><span class="kbadge git">GitHub</span></div>
+            </div>
+            <h3 class="kcard-name" data-ar="نظام الزراعة الذكية">Smart Farming System</h3>
+            <div class="kcard-desc" data-ar="نظام زراعة متصل بإنترنت الأشياء — استقبال بيانات الحساسات، تحليلات لحظية، وواجهات API للأجهزة.">IoT-connected farming system — sensor data ingestion, real-time analytics, RESTful device APIs.</div>
+            <div class="kcard-grade"><i class="fas fa-star"></i> <span data-ar="تقدير: امتياز مع مرتبة الشرف">Graded: High Excellent</span></div>
+            <div class="kcard-tags"><span class="ktag">Django</span><span class="ktag">IoT</span><span class="ktag">REST API</span><span class="ktag">Machine Learning</span><span class="ktag">Data Analysis</span></div>
+            <a href="https://github.com/MahmoudsNasr77/Smart-Farming--" class="kcard-link" target="_blank" rel="noopener"><span data-ar="عرض على GitHub">View on GitHub</span> <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <article class="kcard private">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-boxes"></i></div>
+              <span class="kbadge priv" data-ar="خاص">Private</span>
+            </div>
+            <h3 class="kcard-name" data-ar="نظام مخزون FCI ZU">FCI ZU Inventory System</h3>
+            <div class="kcard-desc" data-ar="واجهة API لإدارة المخزون لكلية حاسبات جامعة الزقازيق — الخلفية التي تشغّل كل عمليات الواجهة، مع مصادقة كاملة.">RESTful inventory API for FCI Zagazig University — backend powering all frontend operations, full auth.</div>
+            <div class="kcard-tags"><span class="ktag">DRF</span><span class="ktag">JWT</span><span class="ktag">Django</span></div>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-top">
+              <div class="kcard-icon"><i class="fas fa-briefcase"></i></div>
+              <span class="kbadge git">GitHub</span>
+            </div>
+            <h3 class="kcard-name" data-ar="منصة لوحة وظائف">Job Board Platform</h3>
+            <div class="kcard-desc" data-ar="لوحة وظائف متكاملة — ملفات أصحاب العمل، نشر الوظائف، تتبّع المتقدمين، ومصادقة.">Feature-complete job board — employer profiles, job postings, applicant tracking, authentication.</div>
+            <div class="kcard-tags"><span class="ktag">Django</span><span class="ktag">PostgreSQL</span></div>
+            <a href="https://github.com/MahmoudsNasr77/Django-Job-Website" class="kcard-link" target="_blank" rel="noopener"><span data-ar="عرض على GitHub">View on GitHub</span> <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Education ===== -->
+<section id="education" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="نموذج · التعليم">Form · Education</div>
+      <h2 class="page-title" data-ar="التعليم">Education</h2>
+      <p class="page-sub" data-ar="أساس أكاديمي في علوم الحاسب من كلية حاسبات ومعلومات جامعة الزقازيق.">Academic Foundation In Computer Science From the Faculty of Computer and Information, Zagazig University.</p>
+    </div>
+
+    <div class="edu-sheet reveal">
+      <div class="edu-badge"><i class="fas fa-graduation-cap"></i></div>
+      <div>
+        <div class="edu-degree" data-ar="بكالوريوس علوم الحاسب من كلية حاسبات ومعلومات جامعة الزقازيق">Bachelor of Computer Science From the Faculty of Computer and Information, Zagazig University.</div>
+        <div class="edu-uni mono"><i class="fas fa-university"></i> <span data-ar="جامعة الزقازيق">Zagazig University</span> &nbsp;·&nbsp; <i class="fas fa-clock"></i> 2019 – 2023</div>
+        <div class="pill-row">
+          <div class="pill"><i class="fas fa-star"></i> <span data-ar="تقدير امتياز مع مرتبة الشرف">Graduated High Excellent</span></div>
+          <div class="pill"><i class="fas fa-chart-line"></i> <span data-ar="المعدل: 3.74 / 4.00">GPA: 3.74 / 4.00</span></div>
+          <div class="pill"><i class="fas fa-code"></i> <span data-ar="هندسة البرمجيات">Software Engineering</span></div>
+          <div class="pill"><i class="fas fa-server"></i> <span data-ar="تطوير الواجهة الخلفية">Backend Development</span></div>
+          <div class="pill"><i class="fas fa-brain"></i> <span data-ar="الخوارزميات والذكاء الاصطناعي">Algorithms & AI</span></div>
+        </div>
+        <div class="pill-sep mono" data-ar="الأنشطة">Activities</div>
+        <div class="pill-row">
+          <div class="pill"><i class="fas fa-users"></i> <span data-ar="عضو GDC الأزهر">GDC Al Azhar Member</span></div>
+          <div class="pill"><i class="fas fa-laptop-code"></i> <span data-ar="ورش عمل وفعاليات تقنية">Tech Workshops & Events</span></div>
+          <div class="pill"><i class="fas fa-diagram-project"></i> <span data-ar="مشاريع جماعية وتعاون">Team Projects & Collaboration</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Tech Stack ===== -->
+<section id="tech" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="وسوم Many2many">Many2many Tags</div>
+      <h2 class="page-title" data-ar="التقنيات المستخدمة">Tech Stack</h2>
+      <p class="page-sub" data-ar="مجمّعة كما تجمّع أودو السجلات في عرض القائمة — حسب الفئة.">Grouped the way an Odoo list view groups records — by category.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="نواة أودو">Odoo Core</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fas fa-cogs" style="color:#814C94"></i> <span data-ar="Odoo ORM">Odoo ORM</span></div>
+          <div class="stack-tag"><i class="fas fa-kiwi-bird" style="color:#38bdf8"></i> <span data-ar="إطار OWL">OWL Framework</span></div>
+          <div class="stack-tag"><i class="fas fa-code" style="color:#FF8C00"></i> QWeb / XML Views</div>
+          <div class="stack-tag"><i class="fas fa-cloud" style="color:#00bcd4"></i> Odoo.sh · CI/CD</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="الخلفية وواجهات API">Backend & APIs</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fab fa-python" style="color:#FFD43B"></i> Python</div>
+          <div class="stack-tag"><i class="fab fa-python" style="color:#2E8B57"></i> Django & DRF</div>
+          <div class="stack-tag"><i class="fas fa-plug" style="color:#34d399"></i> JWT · REST APIs</div>
+          <div class="stack-tag"><i class="fas fa-database" style="color:#336791"></i> PostgreSQL</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="الواجهة والأدوات">Frontend & Tooling</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fab fa-js" style="color:#F7DF1E"></i> JavaScript</div>
+          <div class="stack-tag"><i class="fab fa-html5" style="color:#E34F26"></i> HTML & CSS</div>
+          <div class="stack-tag"><i class="fab fa-bootstrap" style="color:#7952B3"></i> Bootstrap</div>
+          <div class="stack-tag"><i class="fas fa-flask" style="color:#f97316"></i> Postman</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-name" data-ar="البنية والتشغيل">Infra & Ops</div>
+        <div class="stack-tags">
+          <div class="stack-tag"><i class="fab fa-git-alt" style="color:#F05032"></i> Git & GitHub</div>
+          <div class="stack-tag"><i class="fab fa-linux" style="color:#facc15"></i> Linux</div>
+          <div class="stack-tag"><i class="fas fa-server" style="color:#64748b"></i> Nginx · Docker</div>
+          <div class="stack-tag"><i class="fas fa-brain" style="color:#4CAF50"></i> ML / Scikit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section id="services" class="page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="مبدّل التطبيقات">App Switcher</div>
+      <h2 class="page-title" data-ar="الخدمات">Services</h2>
+      <p class="page-sub" data-ar="تطوير أودو من البداية للنهاية — من الوحدات المخصّصة حتى النشر الكامل.">End-to-end Odoo development — from custom modules to full deployments.</p>
+    </div>
+
+    <div class="apps-grid reveal">
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:var(--purple)"><i class="fas fa-cube"></i></div>
+        <div class="app-tile-title" data-ar="وحدات أودو مخصّصة">Custom Odoo Modules</div>
+        <div class="app-tile-desc" data-ar="نماذج، عروض، قواعد صلاحيات، تقارير QWeb ونقاط API مصمّمة حسب سير عملك.">Models, views, security rules, QWeb reports and API endpoints tailored to your workflow.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:var(--teal)"><i class="fas fa-plug"></i></div>
+        <div class="app-tile-title" data-ar="تكاملات API">API Integrations</div>
+        <div class="app-tile-desc" data-ar="ربط أودو بواتساب، بوابات الدفع، Twilio، وأنظمة ERP خارجية.">Connecting Odoo with WhatsApp, payment gateways, Twilio, and third-party ERPs.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:#a855f7"><i class="fas fa-cloud-upload-alt"></i></div>
+        <div class="app-tile-title" data-ar="نشر أودو">Odoo Deployment</div>
+        <div class="app-tile-desc" data-ar="بيئات Odoo.sh والاختبار مع ضبط الأداء وأفضل ممارسات الموثوقية.">Odoo.sh & staging environments with performance tuning and reliability best practices.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:var(--gold)"><i class="fas fa-shopping-cart"></i></div>
+        <div class="app-tile-title" data-ar="مواقع ومتاجر إلكترونية">Website & eCommerce</div>
+        <div class="app-tile-desc" data-ar="صفحات مخصّصة، قوالب، تحسينات المتجر، وتجربة دفع سلسة ترفع نسبة التحويل.">Custom pages, themes, shop improvements, polished checkout UX that converts.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:#3b82f6"><i class="fas fa-robot"></i></div>
+        <div class="app-tile-title" data-ar="الأتمتة وسير العمل">Automation & Workflows</div>
+        <div class="app-tile-desc" data-ar="إجراءات الخادم، مهام cron، سلاسل الموافقات، وأزرار ذكية لعمليات تلقائية.">Server actions, cron jobs, approval chains and smart buttons for hands-off operations.</div>
+      </div>
+      <div class="app-tile">
+        <div class="app-tile-icon" style="background:#ef4444"><i class="fas fa-database"></i></div>
+        <div class="app-tile-title" data-ar="تحسين قواعد البيانات">Database Optimization</div>
+        <div class="app-tile-desc" data-ar="ضبط PostgreSQL، فهرسة استراتيجية، وتحسين الاستعلامات لتسريع أنظمة أودو.">PostgreSQL tuning, strategic indexing, and query optimization for faster Odoo instances.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact — Send-message Chatter ===== -->
+<section id="contact" class="page contact-page">
+  <div class="container">
+    <div class="page-head reveal">
+      <div class="field-label" data-ar="ملاحظة · أرسل رسالة">Log note · Send message</div>
+      <h2 class="page-title" data-ar="راسلني">Message Me</h2>
+      <p class="page-sub" data-ar="اترك رسالة مثل رسالة سجل المناقشات في أودو — تصلني مباشرة في بريدي.">Drop a note like an Odoo chatter message — it lands straight in my inbox.</p>
+    </div>
+
+    <div class="msg-chatter reveal">
+      <div class="msg-chatter-head">
+        <i class="fas fa-comments"></i><b data-ar="سجل المناقشات">Chatter</b>
+        <span class="who" data-ar="الي : mahmoudsabrynasr@gmail.com">to: mahmoudsabrynasr@gmail.com</span>
+      </div>
+      <div class="msg-body">
+        <div class="msg-thread">
+          <div class="msg-bubble">
+            <div class="ava"><i class="fas fa-user-tie"></i></div>
+            <div class="body" data-ar="مرحباً 👋 اترك اسمك وبريدك ورسالتك بالأسفل — سأرد عليك عبر البريد قريباً.">Hi 👋 Leave your name, email and message below — I'll reply to you by email soon.</div>
+          </div>
+        </div>
+
+        <form class="msg-form" id="msgForm" novalidate>
+          <div class="msg-row">
+            <div class="msg-field">
+              <label for="mf-name" data-ar="اسمك">Your name</label>
+              <input type="text" id="mf-name" name="name" required autocomplete="name" placeholder="Mahmoud Nasr" data-ar-ph="مثال:  محمود نصر" />
+              <span class="field-error" id="err-name"></span>
+            </div>
+            <div class="msg-field">
+              <label for="mf-email" data-ar="بريدك الإلكتروني">Your email</label>
+              <input type="email" id="mf-email" name="email" required autocomplete="email" placeholder="nasr@company.com" data-ar-ph="nasr@company.com" />
+              <span class="field-error" id="err-email"></span>
+            </div>
+          </div>
+          <div class="msg-field">
+            <label for="mf-msg" data-ar="الرسالة">Message</label>
+            <textarea id="mf-msg" name="message" rows="4" required placeholder="Tell me about your project…" data-ar-ph="أخبرني عن مشروعك…"></textarea>
+            <span class="field-error" id="err-msg"></span>
+          </div>
+          <div class="msg-send-row">
+            <button type="submit" class="btn btn-primary" id="mf-btn"><i class="fas fa-paper-plane"></i> <span data-ar="إرسال الرسالة">Send message</span></button>
+            <span class="msg-status" id="mf-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-copy">© 2026 Mahmoud Sabry Nasr</div>
+    <div class="saved-pill"><i class="fas fa-check-circle"></i> <span data-ar="تم حفظ كل التغييرات">All changes saved</span></div>
+    <div class="visitor-pill"><i class="fas fa-eye"></i> <span data-ar="الزوّار:">Visitors:</span> <span class="count" id="visitor-count">—</span></div>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/mahmoudnasr77" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/MahmoudsNasr77" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/201552404457" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- ===== Scripts (modular, deferred) ===== -->
+<script src="js/theme.js" defer></script>
+<script src="js/language.js" defer></script>
+<script src="js/animation.js" defer></script>
+<script src="js/contact.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

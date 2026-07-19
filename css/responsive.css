@@ -1,0 +1,59 @@
+/* =========================================================
+   responsive.css — breakpoints (desktop → mobile)
+   No horizontal scroll at any width.
+   ========================================================= */
+
+/* ===== Tablet / small laptop ===== */
+@media(max-width:900px){
+  .record-head{grid-template-columns:1fr;gap:28px;justify-items:start;}
+  .hero-photo{order:-1;margin:0 auto;}
+  .kanban{grid-template-columns:1fr;}
+  .edu-sheet{grid-template-columns:1fr;}
+  .edu-badge{margin-bottom:6px;}
+}
+
+/* ===== Mobile ===== */
+@media(max-width:640px){
+  .appbar-hamburger{display:block;}
+  .lang-toggle{display:none;}
+  .mobile-menu{display:block;}
+  .notebook-tabs{display:none;}
+  .container{padding:0 16px;}
+  .appbar-inner{padding:0 16px;}
+  .page{padding:40px 0;}
+  .record{padding:26px 0 0;}
+  .record-sheet{padding:26px 20px 0;border-radius:14px;}
+  .record-head{gap:22px;}
+  .record-actions{width:100%;}
+  .record-actions .btn{flex:1;justify-content:center;}
+  .hero-photo{width:250px;height:250px;}
+  .photo-ring{width:224px;height:224px;}
+  .smart-buttons{padding:16px 0;gap:6px;}
+  .smart-btn{margin-right:14px;padding-right:14px;}
+  .apps-grid{grid-template-columns:repeat(2,1fr);}
+  .cta-dialog{padding:30px 20px;}
+  .log-entry{padding-left:52px;}
+  .log-avatar{width:38px;height:38px;font-size:15px;}
+  .chatter::before{left:18px;}
+  html[dir="rtl"] .log-entry{padding-right:52px;padding-left:0;}
+  html[dir="rtl"] .chatter::before{right:18px;}
+  .edu-sheet{padding:22px 18px;}
+  .msg-body{padding:16px;}
+  .msg-row{grid-template-columns:1fr;}
+  .footer-inner{justify-content:center;text-align:center;}
+  .back-to-top{bottom:18px;right:18px;}
+  html[dir="rtl"] .back-to-top{left:18px;right:auto;}
+}
+
+/* ===== Small mobile ===== */
+@media(max-width:420px){
+  body{font-size:14px;}
+  .apps-grid{grid-template-columns:1fr;}
+  .smart-buttons{overflow-x:auto;flex-wrap:nowrap;}
+  .smart-btn{flex-shrink:0;}
+  .status-chip{display:none;}
+  .record-actions{flex-direction:column;}
+  .record-actions .btn{width:100%;}
+  .hero-photo{width:220px;height:220px;}
+  .photo-ring{width:196px;height:196px;}
+}
